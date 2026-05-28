@@ -1,9 +1,10 @@
 export const siteConfig = {
   name: "Fatekeeper Guide Library",
   shortName: "Fatekeeper Guide",
+  defaultTitle: "Fatekeeper Guide: Builds, Release Date & Tips",
   domain: "https://fatekeeperguide.online",
   description:
-    "A deep unofficial Fatekeeper guide library for Early Access buying advice, release timing, PC requirements, beginner tutorials, builds, weapons, spells, relics, enemies, bosses, and world exploration.",
+    "Plan your Fatekeeper run with release timing, Early Access advice, PC requirements, beginner tips, builds, weapons, spells, relics, bosses, and source-backed updates.",
   disclaimer:
     "Unofficial fan-made guide. Not affiliated with THQ Nordic, Paraglacial, or Fatekeeper.",
   author: "Fatekeeper Guide Editorial"

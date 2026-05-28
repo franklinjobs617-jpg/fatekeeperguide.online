@@ -204,10 +204,10 @@ function demandSectionFor(input: GuidePage): GuideSection {
 export const guidePages: GuidePage[] = [
   page({
     slug: "fatekeeper/release-date",
-    title: "Fatekeeper Release Date, Unlock Time, and Early Access Status",
+    title: "Fatekeeper Release Date & Early Access Unlock Time",
     h1: "Fatekeeper Release Date and Unlock Time",
     description:
-      "Track Fatekeeper Early Access release timing, UTC conversion, platform status, and what to check before buying.",
+      "See the Fatekeeper release date, UTC and Beijing unlock time, Steam Early Access status, platform details, and what to check before buying.",
     category: "Launch Readiness",
     intent: "buy",
     status: "Official Info",
@@ -265,10 +265,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/early-access",
-    title: "Fatekeeper Early Access: Content Scope, Risks, and Update Tracking",
+    title: "Fatekeeper Early Access Guide: Content, Roadmap, Risks",
     h1: "Fatekeeper Early Access Guide",
     description:
-      "Understand Fatekeeper Early Access content length, buy/wait risks, launch-week testing priorities, and what may change after launch.",
+      "Learn what Fatekeeper Early Access includes, who should buy now, who should wait, how long the first build is, and what needs launch testing.",
     category: "Launch Readiness",
     intent: "buy",
     status: "Official Info",
@@ -327,10 +327,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/is-it-worth-it",
-    title: "Is Fatekeeper Worth It in Early Access?",
+    title: "Is Fatekeeper Worth It? Early Access Buy or Wait Guide",
     h1: "Is Fatekeeper Worth It?",
     description:
-      "A practical Fatekeeper buy or wait guide for Early Access based on content scope, combat appeal, PC requirements, and verification status.",
+      "Decide whether Fatekeeper is worth buying in Early Access with clear pros, risks, content scope, PC requirement warnings, and source-backed advice.",
     category: "Launch Readiness",
     intent: "buy",
     status: "Pre-release Analysis",
@@ -395,10 +395,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/system-requirements",
-    title: "Fatekeeper System Requirements and PC Checker",
+    title: "Fatekeeper System Requirements: Can Your PC Run It?",
     h1: "Fatekeeper System Requirements",
     description:
-      "Check Fatekeeper CPU, GPU, RAM, DirectX, and storage requirements with a pre-launch interpretation for PC players.",
+      "Check Fatekeeper PC requirements for CPU, GPU, RAM, DirectX, and storage, plus conservative advice for players below the listed hardware floor.",
     category: "Launch Readiness",
     intent: "buy",
     status: "Official Info",
@@ -456,10 +456,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/steam-deck",
-    title: "Fatekeeper Steam Deck Status and Handheld Notes",
+    title: "Fatekeeper Steam Deck Status: Verified or Unsupported?",
     h1: "Fatekeeper Steam Deck Status",
     description:
-      "Track Fatekeeper Steam Deck compatibility, handheld risk factors, and what needs testing after Early Access launches.",
+      "Track Fatekeeper Steam Deck compatibility, handheld performance risks, control checks, text readability, battery concerns, and post-launch test status.",
     category: "Launch Readiness",
     intent: "buy",
     status: "Needs Post-Launch Testing",
@@ -510,10 +510,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/controller-support",
-    title: "Fatekeeper Controller Support and Input Guide",
+    title: "Fatekeeper Controller Support: Gamepad Setup and Risks",
     h1: "Fatekeeper Controller Support",
     description:
-      "Track Fatekeeper controller support, input risks, and the tests needed for melee, magic, menus, and Steam Deck.",
+      "Track Fatekeeper controller support for melee, magic, menus, aiming, blocking, Steam Deck play, and the input checks needed after launch.",
     category: "Launch Readiness",
     intent: "buy",
     status: "Needs Post-Launch Testing",
@@ -557,10 +557,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/beginner-guide",
-    title: "Fatekeeper Beginner Guide: Systems, First Choices, and Safe Prep",
+    title: "Fatekeeper Beginner Guide: First Builds, Tips & Mistakes",
     h1: "Fatekeeper Beginner Guide",
     description:
-      "A deep beginner guide to Fatekeeper systems, combat habits, build choices, exploration priorities, and what to avoid early.",
+      "Start Fatekeeper with safer first-hour priorities, combat habits, upgrade caution, exploration checks, build basics, and mistakes to avoid early.",
     category: "Beginner Tutorials",
     intent: "learn",
     status: "Pre-release Analysis",
@@ -626,10 +626,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/tips-and-tricks",
-    title: "Fatekeeper Tips and Tricks for Early Access",
+    title: "Fatekeeper Tips and Tricks: Early Combat and Upgrades",
     h1: "Fatekeeper Tips and Tricks",
     description:
-      "Practical Fatekeeper tips for combat, exploration, builds, upgrades, and launch-week testing without unverified spoilers.",
+      "Use practical Fatekeeper tips for combat spacing, weapon testing, spell safety, exploration, upgrades, and Early Access decisions without fake stats.",
     category: "Beginner Tutorials",
     intent: "learn",
     status: "Pre-release Analysis",
@@ -689,7 +689,7 @@ export const guidePages: GuidePage[] = [
     title: "Fatekeeper First Hours Guide: What to Do First",
     h1: "Fatekeeper First Hours Guide",
     description:
-      "A launch-safe first-hours guide for Fatekeeper covering combat learning, upgrade restraint, exploration notes, and build testing.",
+      "Follow a first-session Fatekeeper checklist for controls, combat safety, weapon reach, spell testing, upgrade choices, exploration, and notes to track.",
     category: "Beginner Tutorials",
     intent: "learn",
     status: "Needs Post-Launch Testing",
@@ -747,10 +747,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/combat-guide",
-    title: "Fatekeeper Combat Guide: Melee, Magic, Defense, and Testing Priorities",
+    title: "Fatekeeper Combat Guide: Melee, Magic, Defense & Timing",
     h1: "Fatekeeper Combat Guide",
     description:
-      "Understand Fatekeeper combat fundamentals, melee and magic roles, enemy pattern reading, and what needs launch testing.",
+      "Learn Fatekeeper combat fundamentals: spacing, windups, weapon reach, recovery, spell safety, defense, stagger checks, and build testing priorities.",
     category: "Beginner Tutorials",
     intent: "learn",
     status: "Pre-release Analysis",
@@ -810,10 +810,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/mistakes-to-avoid",
-    title: "Fatekeeper Mistakes to Avoid Early",
+    title: "Fatekeeper Mistakes to Avoid: Early Access Survival Tips",
     h1: "Fatekeeper Mistakes to Avoid",
     description:
-      "Avoid common Fatekeeper Early Access mistakes around upgrades, build commitment, exploration, combat assumptions, and unverified advice.",
+      "Avoid early Fatekeeper mistakes with safer upgrade habits, build caution, combat checks, resource planning, and warnings about unverified tier lists.",
     category: "Beginner Tutorials",
     intent: "learn",
     status: "Pre-release Analysis",
@@ -864,10 +864,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/builds",
-    title: "Fatekeeper Builds Hub: Beginner, Spellblade, Heavy, and Dagger Plans",
+    title: "Fatekeeper Builds Hub: Best Starter, Spellblade & Heavy",
     h1: "Fatekeeper Builds",
     description:
-      "The Fatekeeper builds hub for beginner builds, spellblade setups, heavy builds, dagger builds, and post-launch verification.",
+      "Compare Fatekeeper builds for beginner safety, spellblade flexibility, heavy stagger, dagger speed, upgrade priorities, and verified meta status.",
     category: "Builds",
     intent: "build",
     status: "Needs Post-Launch Testing",
@@ -929,10 +929,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/builds/best-builds",
-    title: "Fatekeeper Best Builds: Current Ranking and Verification Status",
+    title: "Fatekeeper Best Builds: Ranked Starter Plans and Meta",
     h1: "Fatekeeper Best Builds",
     description:
-      "Track Fatekeeper best builds with confidence labels, launch-week testing rules, and build archetype comparisons.",
+      "See the safest Fatekeeper best-build watchlist before the meta settles, with beginner, spellblade, heavy, and dagger plans ranked by confidence.",
     category: "Builds",
     intent: "build",
     status: "Needs Post-Launch Testing",
@@ -993,10 +993,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/builds/beginner-build",
-    title: "Fatekeeper Beginner Build: Safe Starter Plan",
+    title: "Fatekeeper Beginner Build: Safe Starter Setup",
     h1: "Fatekeeper Beginner Build",
     description:
-      "A safe Fatekeeper beginner build plan focused on survivability, flexible weapon testing, utility magic, and conservative upgrades.",
+      "Use a safe Fatekeeper beginner build plan focused on survivability, flexible weapon testing, utility magic, conservative upgrades, and low-risk play.",
     category: "Builds",
     intent: "build",
     status: "Needs Post-Launch Testing",
@@ -1054,10 +1054,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/builds/spellblade-build",
-    title: "Fatekeeper Spellblade Build: Melee and Magic Hybrid Plan",
+    title: "Fatekeeper Spellblade Build: Melee and Magic Hybrid",
     h1: "Fatekeeper Spellblade Build",
     description:
-      "Plan a Fatekeeper spellblade build around melee pressure, spell utility, relic synergy, and launch-week testing.",
+      "Plan a Fatekeeper spellblade build around melee openings, spell safety, range control, upgrade priorities, relic synergy, and launch testing.",
     category: "Builds",
     intent: "build",
     status: "Needs Post-Launch Testing",
@@ -1109,10 +1109,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/builds/heavy-build",
-    title: "Fatekeeper Heavy Build: Stagger and High-Commitment Plan",
+    title: "Fatekeeper Heavy Build: Stagger, Burst and Risk Plan",
     h1: "Fatekeeper Heavy Build",
     description:
-      "Plan a Fatekeeper heavy build around committed attacks, stagger testing, defensive spacing, and upgrade confidence.",
+      "Build a Fatekeeper heavy weapon plan around stagger, burst windows, recovery risk, enemy pressure, relic choices, and post-launch verification.",
     category: "Builds",
     intent: "build",
     status: "Needs Post-Launch Testing",
@@ -1164,10 +1164,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/builds/dagger-build",
-    title: "Fatekeeper Dagger Build: Speed, Positioning, and Risk Plan",
+    title: "Fatekeeper Dagger Build: Speed, Positioning and Risk",
     h1: "Fatekeeper Dagger Build",
     description:
-      "Plan a Fatekeeper dagger build around speed, positioning, status testing, and close-range survival.",
+      "Plan a Fatekeeper dagger build with speed, positioning, reach checks, status testing, enemy matchup notes, and close-range survival priorities.",
     category: "Builds",
     intent: "build",
     status: "Needs Post-Launch Testing",
@@ -1212,10 +1212,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/weapons",
-    title: "Fatekeeper Weapons Database and Weapon Guide",
+    title: "Fatekeeper Weapons Database: Stats, Scaling and Locations",
     h1: "Fatekeeper Weapons",
     description:
-      "Track Fatekeeper weapon categories, scaling questions, effects, locations, upgrade materials, and best-build usage after launch.",
+      "Track Fatekeeper weapons by category, damage, scaling, passive effects, upgrade materials, locations, and builds once Early Access data is tested.",
     category: "Database",
     intent: "database",
     status: "Needs Post-Launch Testing",
@@ -1269,10 +1269,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/spells",
-    title: "Fatekeeper Spells Database and Magic Guide",
+    title: "Fatekeeper Spells Database: Magic, Combos and Scaling",
     h1: "Fatekeeper Spells",
     description:
-      "Track Fatekeeper spells, mana cost, cooldown, damage type, unlock location, scaling, and best combo pairings after launch.",
+      "Track Fatekeeper spells by mana cost, cooldown, damage type, cast safety, scaling, unlock location, combo value, and verified build synergy.",
     category: "Database",
     intent: "database",
     status: "Needs Post-Launch Testing",
@@ -1326,10 +1326,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/relics",
-    title: "Fatekeeper Relics and Passive Effects Guide",
+    title: "Fatekeeper Relics Guide: Passive Effects and Best Combos",
     h1: "Fatekeeper Relics",
     description:
-      "Track Fatekeeper relics, passive effects, strongest combinations, build synergy, and post-launch verification.",
+      "Track Fatekeeper relics, passive effects, build synergy, stacking rules, strongest combinations, locations, and verification status after launch.",
     category: "Database",
     intent: "database",
     status: "Needs Post-Launch Testing",
@@ -1382,10 +1382,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/enemies",
-    title: "Fatekeeper Enemies Guide: Weaknesses, Patterns, Drops, and Testing",
+    title: "Fatekeeper Enemies Guide: Weaknesses, Patterns and Drops",
     h1: "Fatekeeper Enemies",
     description:
-      "Track Fatekeeper enemy types, attack patterns, weaknesses, drops, strategy notes, and community verification after launch.",
+      "Track Fatekeeper enemies with attack patterns, weakness tests, drops, rewards, matchup advice, build links, and source status for each finding.",
     category: "Database",
     intent: "solve",
     status: "Needs Post-Launch Testing",
@@ -1438,10 +1438,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/bosses",
-    title: "Fatekeeper Boss Guide: Strategies, Patterns, Rewards, and Spoiler Rules",
+    title: "Fatekeeper Boss Guide: Strategies, Patterns and Rewards",
     h1: "Fatekeeper Bosses",
     description:
-      "Track Fatekeeper boss strategy fields: attack patterns, weaknesses, strategy, drops, rewards, spoiler rules, and verification status.",
+      "Prepare for Fatekeeper bosses with spoiler-aware strategy fields, attack patterns, phase notes, weaknesses, recommended builds, rewards, and drops.",
     category: "Database",
     intent: "solve",
     status: "Needs Post-Launch Testing",
@@ -1494,10 +1494,10 @@ export const guidePages: GuidePage[] = [
   }),
   page({
     slug: "fatekeeper/world",
-    title: "Fatekeeper World and Exploration Guide",
+    title: "Fatekeeper World Guide: Secrets, Puzzles and Hidden Loot",
     h1: "Fatekeeper World and Exploration",
     description:
-      "Track Fatekeeper world exploration, secret areas, puzzles, hidden loot, locked doors, dungeon routes, and source status.",
+      "Track Fatekeeper world exploration with secret areas, puzzles, locked doors, hidden loot, dungeon routes, route notes, rewards, and source status.",
     category: "Database",
     intent: "solve",
     status: "Needs Post-Launch Testing",

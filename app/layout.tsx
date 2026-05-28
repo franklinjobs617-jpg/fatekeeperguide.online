@@ -22,13 +22,27 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
-  title: {
-    default: siteConfig.name,
-    template: "%s | Fatekeeper Guide"
-  },
+  title: siteConfig.defaultTitle,
   description: siteConfig.description,
+  icons: {
+    icon: [
+      {
+        url: "/icon.png",
+        type: "image/png",
+        sizes: "512x512"
+      }
+    ],
+    shortcut: "/icon.png",
+    apple: [
+      {
+        url: "/apple-icon.png",
+        type: "image/png",
+        sizes: "180x180"
+      }
+    ]
+  },
   openGraph: {
-    title: siteConfig.name,
+    title: siteConfig.defaultTitle,
     description: siteConfig.description,
     url: siteConfig.domain,
     siteName: siteConfig.name,
