@@ -1,0 +1,24 @@
+# Fatekeeper Guide Library
+> Unofficial English Fatekeeper guide hub for Early Access buying decisions, beginner systems, builds, databases, enemies, bosses, and world exploration.
+
+## Core Pages
+- [Homepage](https://fatekeeperguide.com): Guide hub with release facts, search demand, source policy, and major guide clusters.
+- [Fatekeeper Release Date](https://fatekeeperguide.com/fatekeeper/release-date): Early Access release timing, UTC conversion, platform status, and pre-launch checklist.
+- [Fatekeeper Early Access](https://fatekeeperguide.com/fatekeeper/early-access): Content scope, buy/wait risks, update expectations, and launch-week testing plan.
+- [Fatekeeper System Requirements](https://fatekeeperguide.com/fatekeeper/system-requirements): CPU, GPU, RAM, DirectX, storage, and conservative PC fit guidance.
+- [Fatekeeper Beginner Guide](https://fatekeeperguide.com/fatekeeper/beginner-guide): First-session priorities, combat habits, upgrades, exploration, and early mistakes.
+- [Fatekeeper Builds](https://fatekeeperguide.com/fatekeeper/builds): Beginner, spellblade, heavy, dagger, and best-build confidence pages.
+- [Fatekeeper Weapons](https://fatekeeperguide.com/fatekeeper/weapons): Weapon database fields, categories, scaling questions, locations, and build links.
+- [Fatekeeper Spells](https://fatekeeperguide.com/fatekeeper/spells): Spell roles, mana/cooldown fields, scaling, unlocks, and combo testing.
+- [Fatekeeper Bosses](https://fatekeeperguide.com/fatekeeper/bosses): Boss strategy format, attack patterns, rewards, spoiler rules, and verification status.
+
+## Source Policy
+- Confirmed facts use Steam, the official Fatekeeper site, THQ Nordic, and official YouTube videos.
+- Reddit and media coverage are used for user-demand research and community questions, not final gameplay proof.
+- Exact stats, item locations, drops, weaknesses, and build rankings are labeled until tested in the playable Early Access build.
+
+## Key Facts
+- Fatekeeper is developed by Paraglacial and published by THQ Nordic.
+- The listed platform is Windows PC on Steam.
+- Current listed Early Access release timing is June 2, 2026 at 17:00 UTC.
+- Steam lists about two hours of content for Early Access launch, about 15 hours planned for 1.0, and about 18 months planned in Early Access.
