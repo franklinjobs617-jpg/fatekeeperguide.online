@@ -22,8 +22,24 @@ export const playerDemandSignals = [
     intent: "Game fit",
     body:
       "Media and community discussion focus on first-person fantasy combat, Dark Messiah-style comparisons, melee weight, magic utility, exploration, and whether the game is linear or open-ended.",
-    href: "/fatekeeper/combat-guide",
+    href: "/fatekeeper/dark-messiah-comparison",
     source: sourceLinks.pcgamer
+  },
+  {
+    title: "Is it co-op or single-player?",
+    intent: "Multiplayer",
+    body:
+      "Steam Community discussion shows co-op demand. Players need the direct answer before planning a launch session with friends.",
+    href: "/fatekeeper/multiplayer-coop",
+    source: sourceLinks.steamCommunityCoop
+  },
+  {
+    title: "What is the price?",
+    intent: "Price",
+    body:
+      "Price, discount, preorder, and buy-now searches are high-intent terms because Steam says Early Access is discounted and pricing will rise with updates.",
+    href: "/fatekeeper/price",
+    source: sourceLinks.steam
   },
   {
     title: "Can my PC run it?",
@@ -55,11 +71,17 @@ const intentQuestions = {
   buy: [
     "When does Fatekeeper unlock, and which time zone should I use?",
     "How much content is in the first Early Access build?",
+    "How much does Fatekeeper cost, and is the Early Access version discounted?",
+    "Is Fatekeeper on PS5, Xbox, Game Pass, or only Steam PC?",
+    "Is Fatekeeper co-op, multiplayer, or single-player?",
+    "Does Fatekeeper have a demo, preload, or early download?",
     "Should I buy at launch or wait for player reports?",
     "Can my PC or Steam Deck handle the listed requirements?"
   ],
   learn: [
     "What should I learn in the first hour?",
+    "Is Fatekeeper like Dark Messiah or Skyrim?",
+    "Does Fatekeeper have reactive combat, kick-style physics, or environmental kills?",
     "Which early mistakes waste time or resources?",
     "How do weapons, spells, relics, armor, and exploration connect?",
     "What can be trusted before hands-on launch testing?"
@@ -101,7 +123,7 @@ export const researchSourceNotes = [
   },
   {
     label: "YouTube",
-    value: "Gameplay reveal footage, combat readability, weapon and spell presentation, and trailer questions.",
+    value: "Gameplay reveal footage, Dark Messiah-like titles, combat readability, weapon and spell presentation, and trailer questions.",
     source: sourceLinks.youtubeGameplay
   },
   {

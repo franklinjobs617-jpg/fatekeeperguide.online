@@ -11,6 +11,11 @@ export type GuideSource = {
   url: string;
 };
 
+export type GuideFaq = {
+  question: string;
+  answer: string;
+};
+
 export type GuideTable = {
   caption: string;
   headers: string[];
@@ -38,6 +43,7 @@ export type GuidePage = {
   quickAnswer: string;
   takeaways: string[];
   sections: GuideSection[];
+  faqs?: GuideFaq[];
   sources: GuideSource[];
   related: string[];
   featured?: boolean;
@@ -92,13 +98,154 @@ function page(input: GuidePage): GuidePage {
   const sections = [...input.sections];
   const verificationIndex = sections.findIndex((section) => section.heading === "How reliable is this information?");
   const insertAt = verificationIndex >= 0 ? verificationIndex : sections.length;
+  const faqs = [...(input.faqs ?? []), ...demandFaqsFor(input.slug)];
 
   sections.splice(insertAt, 0, demandSectionFor(input));
 
   return {
     ...input,
-    sections
+    sections,
+    ...(faqs.length ? { faqs } : {})
   };
+}
+
+function demandFaqsFor(slug: string): GuideFaq[] {
+  switch (slug) {
+    case "fatekeeper/release-date":
+      return [
+        {
+          question: "When does Fatekeeper launch in Early Access?",
+          answer: `Fatekeeper is scheduled for Early Access on ${fatekeeperFacts.releaseLabel}, which is ${fatekeeperFacts.beijingLabel}. Steam remains the final source if the storefront timing changes.`
+        },
+        {
+          question: "Does Fatekeeper have a preload?",
+          answer:
+            "Do not assume a Fatekeeper preload exists before Steam shows a preload or install button. Check the official Steam app page near the unlock window."
+        },
+        {
+          question: "How much content is in Fatekeeper at launch?",
+          answer: `Steam describes ${fatekeeperFacts.earlyAccessLength} at Early Access launch, with ${fatekeeperFacts.fullGameLength} planned for 1.0.`
+        },
+        {
+          question: "Can I preorder Fatekeeper?",
+          answer:
+            "Use Steam as the source of record. If purchase is not live in your region, wishlist or follow the app and check again close to launch."
+        }
+      ];
+    case "fatekeeper/early-access":
+      return [
+        {
+          question: "How long is Fatekeeper Early Access at launch?",
+          answer: `Steam describes the launch Early Access build as ${fatekeeperFacts.earlyAccessLength}. Treat that as a short first slice, not a finished campaign.`
+        },
+        {
+          question: "How long will Fatekeeper stay in Early Access?",
+          answer: `Steam currently describes ${fatekeeperFacts.earlyAccessWindow}. That plan can change as development and player feedback continue.`
+        },
+        {
+          question: "Will Fatekeeper get more expensive after Early Access updates?",
+          answer:
+            "Yes. Steam says the Early Access version is significantly discounted and that pricing will go up based on updates."
+        },
+        {
+          question: "Should I wait for Fatekeeper 1.0?",
+          answer:
+            "Wait for 1.0 if you want a complete story, final balance, and stable performance reports. Buy Early Access only if you accept a short, unfinished build."
+        }
+      ];
+    case "fatekeeper/is-it-worth-it":
+      return [
+        {
+          question: "Is Fatekeeper worth buying at launch?",
+          answer:
+            "Fatekeeper is only a strong launch buy if you want to test first-person fantasy combat early and accept a limited Early Access slice. It is not an automatic buy for players expecting a finished campaign."
+        },
+        {
+          question: "What is the biggest Fatekeeper buying risk?",
+          answer:
+            "The biggest buying risks are the short launch content scope, unverified performance, unfinished balance, and unknown post-launch update pace."
+        },
+        {
+          question: "Is Fatekeeper worth it for Dark Messiah fans?",
+          answer:
+            "It is worth watching for Dark Messiah fans, but the exact physics depth, kick-style interactions, and combat freedom need hands-on testing before calling it a true successor."
+        },
+        {
+          question: "Should I wait for Fatekeeper reviews?",
+          answer:
+            "Yes, wait for reviews if price value, performance, or complete content matters more than playing the first Early Access build immediately."
+        }
+      ];
+    case "fatekeeper/combat-guide":
+      return [
+        {
+          question: "Is Fatekeeper combat like Dark Messiah?",
+          answer:
+            "Fatekeeper has visible first-person melee and magic appeal for Dark Messiah fans, but exact physics, kick behavior, enemy reactions, and environmental combat depth remain unverified before launch."
+        },
+        {
+          question: "Is Fatekeeper combat more like Skyrim or Dark Messiah?",
+          answer:
+            "The search demand sits between both comparisons: Skyrim-like first-person fantasy RPG interest and Dark Messiah-like melee combat interest. The final feel needs hands-on testing."
+        },
+        {
+          question: "Does Fatekeeper have reactive combat?",
+          answer:
+            "Official positioning uses reactive combat language, but practical details like stagger, recovery, interruption, and enemy response need Early Access testing."
+        },
+        {
+          question: "Does Fatekeeper have dismemberment or physics kills?",
+          answer:
+            "Do not treat dismemberment, advanced physics kills, or full environmental combat as verified systems until players can test them in the playable build."
+        }
+      ];
+    case "fatekeeper/system-requirements":
+      return [
+        {
+          question: "Can my PC run Fatekeeper?",
+          answer: `Steam lists ${fatekeeperFacts.minimumCpu}, ${fatekeeperFacts.minimumRam}, ${fatekeeperFacts.minimumGpu}, ${fatekeeperFacts.directX}, and ${fatekeeperFacts.storage}. Compare your PC against those requirements before buying.`
+        },
+        {
+          question: "Does Fatekeeper require an RTX 3070?",
+          answer:
+            "Steam lists a GeForce RTX 3070 or Radeon RX 6800 XT with 8 GB VRAM as the minimum GPU class, so lower GPUs should wait for launch-week performance reports."
+        },
+        {
+          question: "Does Fatekeeper need 32 GB RAM?",
+          answer: `Steam lists ${fatekeeperFacts.minimumRam} as the minimum and ${fatekeeperFacts.recommendedRam} as the recommended RAM target.`
+        },
+        {
+          question: "Will Fatekeeper run well at launch?",
+          answer:
+            "Launch performance is unverified until players test the Early Access build across real hardware, settings, and patch versions."
+        }
+      ];
+    case "fatekeeper/steam-deck":
+      return [
+        {
+          question: "Is Fatekeeper Steam Deck verified?",
+          answer:
+            "Treat Fatekeeper Steam Deck status as unverified until Steam shows an official Deck rating or players publish repeatable launch-week tests."
+        },
+        {
+          question: "Will Fatekeeper run on Steam Deck?",
+          answer:
+            "Do not assume reliable Steam Deck performance. The listed PC requirements are demanding, so handheld results need direct testing."
+        },
+        {
+          question: "What should Steam Deck tests check?",
+          answer:
+            "Steam Deck tests should check resolution, frame cap, graphics preset, stutter, crashes, text readability, battery, and controller comfort."
+        },
+        {
+          question: "Should I buy Fatekeeper for Steam Deck on day one?",
+          answer:
+            "Wait for Steam Deck reports if handheld play is your main reason to buy. The page should not claim support before proof exists."
+        }
+      ];
+    default:
+      return [];
+  }
 }
 
 function demandSectionFor(input: GuidePage): GuideSection {
@@ -106,7 +253,7 @@ function demandSectionFor(input: GuidePage): GuideSection {
     return {
       heading: "Player questions this page answers",
       body: [
-        "Pre-launch Fatekeeper searches are mostly practical: release date, Early Access size, PC requirements, Steam Deck status, controller support, and whether the first build is worth buying. Use this section as a buying checklist before opening Steam.",
+        "Pre-launch Fatekeeper searches are mostly practical: release date, Early Access size, price, discount, preorder, platform, co-op, demo, preload, PC requirements, Steam Deck status, controller support, and whether the first build is worth buying. Use this section as a buying checklist before opening Steam.",
         "Google Trends can be useful for watching whether branded demand rises near trailers, previews, and the Early Access date, but low-volume pre-launch game terms should not be treated as exact search-volume data. The safer signal is the repeated question pattern across Steam, YouTube, Reddit, and media coverage."
       ],
       table: {
@@ -115,6 +262,10 @@ function demandSectionFor(input: GuidePage): GuideSection {
         rows: [
           ["When can I play?", "Release Date", "Plan the unlock window"],
           ["How much content is in Early Access?", "Early Access", "Decide buy or wait"],
+          ["How much does it cost?", "Price", "Check regional Steam price and discount status"],
+          ["Is it on PS5, Xbox, or Game Pass?", "Platforms", "Avoid unsupported platform assumptions"],
+          ["Is it co-op or multiplayer?", "Co-op / Multiplayer", "Plan solo or friend sessions correctly"],
+          ["Is there a demo or preload?", "Demo / Preload", "Prepare download and launch access"],
           ["Can my PC run it?", "System Requirements", "Avoid performance risk"],
           ["Can I play handheld or controller?", "Steam Deck / Controller Support", "Avoid unsupported setup assumptions"]
         ]
@@ -1493,6 +1644,504 @@ export const guidePages: GuidePage[] = [
     ]
   }),
   page({
+    slug: "fatekeeper/dark-messiah-comparison",
+    title: "Is Fatekeeper Like Dark Messiah? Combat, Magic and Physics Comparison",
+    h1: "Is Fatekeeper Like Dark Messiah?",
+    description:
+      "Compare Fatekeeper with Dark Messiah of Might and Magic by first-person melee, magic, physics, kick-style combat expectations, Skyrim-like RPG searches, and what remains unverified.",
+    category: "Game Fit",
+    intent: "learn",
+    status: "Pre-release Analysis",
+    lastUpdated,
+    heroImage: media.combat,
+    quickAnswer:
+      "Fatekeeper is being searched and discussed as a Dark Messiah-like first-person fantasy RPG, but the comparison should stay limited before launch. Official material supports first-person sword and sorcery, reactive combat, progression, spells, relics, and handcrafted spaces; exact physics depth, kick-style interactions, enemy behavior, and build freedom need hands-on testing.",
+    takeaways: [
+      "The Dark Messiah comparison is a real player demand signal from Reddit, Steam Community, YouTube, and media titles.",
+      "Official material supports first-person fantasy melee and magic, not a confirmed one-to-one Dark Messiah successor.",
+      "Physics depth, kick behavior, dismemberment, and environmental kills need playable-build evidence.",
+      "This page is useful for players asking whether Fatekeeper matches that old-school melee RPG itch."
+    ],
+    sections: [
+      launchSections.sourceBackedEa,
+      {
+        heading: "Why players compare Fatekeeper to Dark Messiah",
+        body: [
+          "The comparison exists because players see a first-person fantasy RPG with melee weapons, spells, old-school dungeon energy, and a heavier physical combat presentation than a standard menu-driven RPG.",
+          "That demand matters for search. YouTube titles and Reddit threads are framing Fatekeeper around Dark Messiah, brutal melee, Skyrim-like exploration, and whether a modern sword-and-sorcery RPG can deliver reactive combat."
+        ],
+        table: {
+          caption: "Comparison demand map",
+          headers: ["Search phrase", "What the player wants", "Current answer"],
+          rows: [
+            ["Fatekeeper Dark Messiah", "A direct old-school melee RPG comparison", "Strong search fit, exact mechanics unverified"],
+            ["Fatekeeper Skyrim like", "First-person fantasy RPG structure", "Useful framing, but not proof of open-world scope"],
+            ["Fatekeeper kick", "Dark Messiah-style physical combat", "Not confirmed as a full mechanic before testing"],
+            ["Fatekeeper brutal combat", "Weight, impact, magic, melee feedback", "Trailer-visible, final feel needs hands-on play"]
+          ]
+        }
+      },
+      {
+        heading: "What the comparison should not claim yet",
+        body: [
+          "The page must not claim Fatekeeper has the same kick system, physics sandbox, enemy reactions, environmental kill depth, or level design structure as Dark Messiah until players can test the Early Access build.",
+          "The safe pre-launch answer is narrower: Fatekeeper is targeting the same audience signal, but the real proof is combat feel, enemy interaction, level layout, spell utility, and whether physical problem-solving works outside trailer moments."
+        ],
+        bullets: [
+          "Do not call it a confirmed spiritual successor as a fact.",
+          "Do not promise Skyrim-scale openness.",
+          "Do not treat one trailer clip as proof of full combat depth.",
+          "Update after launch with tested examples, patch version, and video or screenshot evidence."
+        ]
+      },
+      verificationSection("Dark Messiah comparison")
+    ],
+    faqs: [
+      {
+        question: "Is Fatekeeper like Dark Messiah?",
+        answer:
+          "Fatekeeper appears to target players who like Dark Messiah-style first-person fantasy combat, but it is not proven to match Dark Messiah's exact physics, kick, or environmental combat depth before Early Access testing."
+      },
+      {
+        question: "Is Fatekeeper a Skyrim-like RPG?",
+        answer:
+          "Fatekeeper is a first-person fantasy RPG, so Skyrim-like searches make sense, but official material does not prove a Skyrim-scale open world. Treat the comparison as a search framing, not a confirmed scope claim."
+      },
+      {
+        question: "Does Fatekeeper have Dark Messiah's kick mechanic?",
+        answer:
+          "A full Dark Messiah-style kick mechanic is not confirmed here as a reliable gameplay fact. It needs hands-on testing in the playable Early Access build."
+      },
+      {
+        question: "Why are YouTube videos calling Fatekeeper a Dark Messiah-like RPG?",
+        answer:
+          "Creators are using that phrase because the visible footage shows first-person sword-and-sorcery combat with old-school fantasy RPG energy. The phrase reflects player interest, not final mechanical proof."
+      }
+    ],
+    sources: [
+      sourceLinks.steam,
+      sourceLinks.official,
+      sourceLinks.youtubeGameplay,
+      sourceLinks.youtubeDarkMessiahWolfheart,
+      sourceLinks.youtubeDarkMessiahLuna,
+      sourceLinks.redditDarkMessiah,
+      sourceLinks.steamCommunityDarkMessiah,
+      sourceLinks.rpsDarkMessiah,
+      sourceLinks.pcgamer
+    ],
+    related: [
+      "fatekeeper/combat-guide",
+      "fatekeeper/is-it-worth-it",
+      "fatekeeper/early-access",
+      "fatekeeper/builds",
+      "fatekeeper/reviews"
+    ],
+    featured: true
+  }),
+  page({
+    slug: "fatekeeper/multiplayer-coop",
+    title: "Is Fatekeeper Co-op or Multiplayer? Single-Player Status",
+    h1: "Is Fatekeeper Co-op or Multiplayer?",
+    description:
+      "Check whether Fatekeeper has co-op, multiplayer, online play, or a single-player-only Early Access launch based on official store context and Steam Community discussion.",
+    category: "Launch Readiness",
+    intent: "buy",
+    status: "Official Info",
+    lastUpdated,
+    heroImage: media.hero,
+    quickAnswer:
+      "Fatekeeper should be treated as a single-player first-person RPG for Early Access. Do not buy it expecting co-op, online multiplayer, or a shared campaign unless Steam or the developer publishes a different official update.",
+    takeaways: [
+      "Co-op and multiplayer are buy-intent questions, not minor FAQ filler.",
+      "The safest answer for launch planning is single-player.",
+      "Controller and Steam Deck checks matter separately from multiplayer support.",
+      "Any future co-op change needs an official source before the page changes."
+    ],
+    sections: [
+      launchSections.sourceBackedEa,
+      {
+        heading: "Current co-op answer",
+        body: [
+          "The practical player answer is simple: plan for solo play. Fatekeeper's current public positioning is a first-person RPG about your own combat style, progression, spells, relics, armor, and route choices.",
+          "Steam Community discussion shows users already asking about co-op. That makes this a search page that needs a direct answer, because players may skip or buy the game based on whether they can play with friends."
+        ],
+        table: {
+          caption: "Mode expectation",
+          headers: ["Question", "Current answer", "What to check"],
+          rows: [
+            ["Is Fatekeeper co-op?", "Treat as no for Early Access", "Steam page and developer updates"],
+            ["Is Fatekeeper multiplayer?", "Treat as no for Early Access", "Store feature tags and patch notes"],
+            ["Is Fatekeeper single-player?", "Yes, plan for solo play", "Steam and official messaging"],
+            ["Can friends join a campaign?", "Do not assume this exists", "Official feature announcement required"]
+          ]
+        }
+      },
+      {
+        heading: "Why this matters before buying",
+        body: [
+          "A solo fantasy RPG can still be worth buying, but it solves a different problem than a co-op dungeon crawler. Players searching co-op need the answer before they spend money or organize a launch-night session.",
+          "This page should stay strict: if co-op is not listed or officially announced, the content should not imply hidden online features."
+        ]
+      },
+      verificationSection("multiplayer and co-op")
+    ],
+    faqs: [
+      {
+        question: "Is Fatekeeper co-op?",
+        answer:
+          "No reliable public information supports Fatekeeper co-op at Early Access launch. Treat it as a single-player game unless Steam or the developer announces otherwise."
+      },
+      {
+        question: "Does Fatekeeper have multiplayer?",
+        answer:
+          "Fatekeeper should not be bought for multiplayer. The current safe reading is a solo first-person RPG, not an online or co-op game."
+      },
+      {
+        question: "Can I play Fatekeeper with friends?",
+        answer:
+          "Do not plan a friends-only launch session around Fatekeeper. Use it as a solo game until an official co-op or multiplayer update exists."
+      },
+      {
+        question: "Is Fatekeeper single-player?",
+        answer:
+          "Yes. For launch planning, Fatekeeper should be treated as a single-player RPG centered on personal combat, progression, weapons, spells, and relics."
+      }
+    ],
+    sources: [sourceLinks.steam, sourceLinks.official, sourceLinks.steamCommunityCoop],
+    related: [
+      "fatekeeper/release-date",
+      "fatekeeper/price",
+      "fatekeeper/platforms",
+      "fatekeeper/controller-support",
+      "fatekeeper/is-it-worth-it"
+    ],
+    featured: true
+  }),
+  page({
+    slug: "fatekeeper/price",
+    title: "Fatekeeper Price, Discount and Preorder Status",
+    h1: "Fatekeeper Price and Discount",
+    description:
+      "Track Fatekeeper price questions, Early Access discount wording, preorder status, regional Steam pricing checks, and whether to buy now or wait.",
+    category: "Launch Readiness",
+    intent: "buy",
+    status: "Official Info",
+    lastUpdated,
+    heroImage: media.box,
+    quickAnswer:
+      "Steam says the Fatekeeper Early Access version is planned at a significant discounted price and that pricing will go up based on updates. The exact live price should be checked on Steam in your region at launch because regional prices and storefront timing can change.",
+    takeaways: [
+      "Price, discount, preorder, and buy-now searches are high-intent launch terms.",
+      "Steam is the source of record for the actual live regional price.",
+      "Early Access discount wording is official, but final storefront price must be checked in-region.",
+      "The value question depends on the two-hour launch scope and your tolerance for unfinished content."
+    ],
+    sections: [
+      launchSections.sourceBackedEa,
+      {
+        heading: "What is known about the price",
+        body: [
+          "The official Steam Early Access section states that the Early Access version is discounted and that pricing will go up as the game receives updates. That makes the launch price a real buy-or-wait decision.",
+          "The page should avoid quoting a single third-party key-shop number as the official price. Players need to check the Steam purchase box in their own region when the game unlocks."
+        ],
+        table: {
+          caption: "Price question map",
+          headers: ["Player search", "Direct answer", "Source status"],
+          rows: [
+            ["Fatekeeper price", "Check Steam regional price at launch", "Official storefront"],
+            ["Fatekeeper discount", "Early Access is described as significantly discounted", "Steam wording"],
+            ["Fatekeeper preorder", "Use Steam wishlist/follow until purchase is live", "Storefront dependent"],
+            ["Is Fatekeeper worth the price?", "Depends on two-hour EA scope and update trust", "Buy/wait analysis"]
+          ]
+        }
+      },
+      {
+        heading: "How to judge value before reviews",
+        body: [
+          "A lower Early Access price can still be a bad buy if you expect a finished campaign. The first public build is described as a short slice, so the value case is strongest for players who want to test combat early and follow development.",
+          "If you only want a complete story, stable performance, and finished build balance, the honest answer is to wait for player reports or 1.0."
+        ],
+        bullets: [
+          "Buy early for combat testing, feedback, and a lower Early Access price.",
+          "Wait if two hours of launch content feels too small.",
+          "Wait if your PC is below the listed GPU or RAM requirements.",
+          "Ignore unofficial price pages when Steam has the final regional price."
+        ]
+      },
+      verificationSection("price and discount")
+    ],
+    faqs: [
+      {
+        question: "How much does Fatekeeper cost?",
+        answer:
+          "Check the Steam store in your region for the live Fatekeeper price. Steam is the official purchase source and regional prices can differ."
+      },
+      {
+        question: "Is Fatekeeper discounted in Early Access?",
+        answer:
+          "Yes. Steam describes the Early Access version as a significant discounted price, with pricing expected to go up as updates arrive."
+      },
+      {
+        question: "Can I preorder Fatekeeper?",
+        answer:
+          "Use Steam as the source of record. If the purchase button is not live in your region, wishlist or follow the app and check again near the unlock window."
+      },
+      {
+        question: "Is Fatekeeper worth buying at launch?",
+        answer:
+          "It is only a strong launch buy if you accept a short Early Access slice and want to test first-person fantasy combat early. Wait if you need a complete campaign."
+      }
+    ],
+    sources: [sourceLinks.steam, sourceLinks.official, sourceLinks.thqGameplay],
+    related: [
+      "fatekeeper/is-it-worth-it",
+      "fatekeeper/early-access",
+      "fatekeeper/release-date",
+      "fatekeeper/system-requirements",
+      "fatekeeper/reviews"
+    ],
+    featured: true
+  }),
+  page({
+    slug: "fatekeeper/platforms",
+    title: "Fatekeeper Platforms: PC, Steam, PS5, Xbox and Console Status",
+    h1: "Fatekeeper Platforms",
+    description:
+      "Check whether Fatekeeper is on PC, Steam, PS5, Xbox, console, Steam Deck, or other platforms, with clear launch-platform wording.",
+    category: "Launch Readiness",
+    intent: "buy",
+    status: "Official Info",
+    lastUpdated,
+    heroImage: media.header,
+    quickAnswer:
+      `The listed Fatekeeper launch platform is ${fatekeeperFacts.platform}. Do not assume PS5, Xbox, Switch, Game Pass, or console support unless THQ Nordic, Paraglacial, or a storefront announces it.`,
+    takeaways: [
+      "PC and Steam are confirmed by the current public store path.",
+      "PS5, Xbox, Switch, and Game Pass searches need a direct no-current-listing answer.",
+      "Steam Deck is a separate compatibility question, not a platform confirmation.",
+      "Console pages must not promise ports before official announcements."
+    ],
+    sections: [
+      launchSections.sourceBackedEa,
+      {
+        heading: "Current platform status",
+        body: [
+          "Players searching platform terms need a fast answer because a wrong platform assumption wastes time. Fatekeeper is currently presented around Windows PC on Steam.",
+          "If console ports appear later, this page should be updated with the storefront link, announcement date, and exact platform wording."
+        ],
+        table: {
+          caption: "Platform answer table",
+          headers: ["Platform search", "Current answer", "Action"],
+          rows: [
+            ["PC", "Listed for Windows PC", "Use Steam"],
+            ["Steam", "Steam app 2186990", "Wishlist, follow, or buy when live"],
+            ["PS5", "No current listed launch platform", "Wait for official announcement"],
+            ["Xbox", "No current listed launch platform", "Wait for official announcement"],
+            ["Switch", "No current listed launch platform", "Wait for official announcement"],
+            ["Steam Deck", "Compatibility unverified", "Use the Steam Deck page"]
+          ]
+        }
+      },
+      {
+        heading: "Why Steam Deck is not the same question",
+        body: [
+          "Steam Deck users are still buying the PC version. The question is whether the game runs well on handheld hardware, whether text is readable, and whether controller input feels reliable.",
+          "Because Fatekeeper lists demanding PC requirements, Steam Deck support should remain unverified until official rating or hands-on testing exists."
+        ]
+      },
+      verificationSection("platform status")
+    ],
+    faqs: [
+      {
+        question: "Is Fatekeeper on PS5?",
+        answer:
+          "No PS5 launch listing is confirmed here. The current public platform focus is Windows PC on Steam."
+      },
+      {
+        question: "Is Fatekeeper on Xbox?",
+        answer:
+          "No Xbox launch listing is confirmed here. Treat Fatekeeper as a Steam PC Early Access game unless an official Xbox announcement appears."
+      },
+      {
+        question: "Is Fatekeeper on Steam?",
+        answer:
+          "Yes. Fatekeeper has a Steam app page for Windows PC and Steam is the source of record for launch timing and purchase status."
+      },
+      {
+        question: "Is Fatekeeper on Game Pass?",
+        answer:
+          "No Game Pass availability is confirmed here. Use official storefront or publisher updates before assuming subscription access."
+      }
+    ],
+    sources: [sourceLinks.steam, sourceLinks.official, sourceLinks.steamdb],
+    related: [
+      "fatekeeper/release-date",
+      "fatekeeper/steam-deck",
+      "fatekeeper/controller-support",
+      "fatekeeper/price",
+      "fatekeeper/system-requirements"
+    ]
+  }),
+  page({
+    slug: "fatekeeper/demo-preload",
+    title: "Fatekeeper Demo, Preload and Launch Download Status",
+    h1: "Fatekeeper Demo and Preload Status",
+    description:
+      "Check whether Fatekeeper has a demo, preload, early download, launch countdown, or Steam unlock timing before Early Access.",
+    category: "Launch Readiness",
+    intent: "buy",
+    status: "Official Info",
+    lastUpdated,
+    heroImage: media.hero,
+    quickAnswer:
+      "Use Steam as the final source for Fatekeeper demo, preload, download size, and unlock state. Before launch, do not assume a demo or preload exists unless Steam shows it directly on the app page.",
+    takeaways: [
+      "Demo and preload searches spike near launch because players want to prepare downloads.",
+      "Steam store state can change close to unlock.",
+      "The release page handles time; this page handles download and access questions.",
+      "Do not claim a demo, preload, or early access key unless the storefront proves it."
+    ],
+    sections: [
+      launchSections.sourceBackedEa,
+      {
+        heading: "What to check on Steam",
+        body: [
+          "The safest user path is to open the Steam app page near the unlock window and check the visible button state. A wishlist button, purchase button, demo button, preload button, or install button each means something different.",
+          "This page exists because players search the same access problem in different words: demo, preload, early download, unlock, countdown, and release time."
+        ],
+        table: {
+          caption: "Launch access checks",
+          headers: ["Search term", "What it means", "Safe answer"],
+          rows: [
+            ["Fatekeeper demo", "Playable sample before purchase", "Only real if Steam shows a demo"],
+            ["Fatekeeper preload", "Download before unlock", "Only real if Steam shows preload or install"],
+            ["Fatekeeper early download", "Install before release", "Check Steam near unlock"],
+            ["Fatekeeper launch countdown", "Time until store access", "Use Steam and release page"],
+            ["Fatekeeper download size", "Storage and install planning", "Confirm on Steam client"]
+          ]
+        }
+      },
+      {
+        heading: "Pre-launch checklist",
+        body: [
+          "Players planning to play at unlock should check storage, GPU requirements, Steam region, and whether the store button changes as the release window approaches.",
+          "If Steam does not show a demo or preload, the page should not imply a workaround. The useful answer is certainty, not guesswork."
+        ]
+      },
+      verificationSection("demo and preload status")
+    ],
+    faqs: [
+      {
+        question: "Does Fatekeeper have a demo?",
+        answer:
+          "A Fatekeeper demo should only be treated as available if Steam shows a demo button on the official app page."
+      },
+      {
+        question: "Can I preload Fatekeeper?",
+        answer:
+          "Do not assume a Fatekeeper preload exists. Check Steam near the unlock window for a preload or install button."
+      },
+      {
+        question: "When can I download Fatekeeper?",
+        answer:
+          "Download access depends on Steam's live store state in your region. The release timing page gives the planned unlock reference."
+      },
+      {
+        question: "What is the Fatekeeper download size?",
+        answer:
+          `Steam lists ${fatekeeperFacts.storage} as the storage requirement. The exact download size can differ and should be checked in the Steam client.`
+      }
+    ],
+    sources: [sourceLinks.steam, sourceLinks.steamdb, sourceLinks.official],
+    related: [
+      "fatekeeper/release-date",
+      "fatekeeper/early-access",
+      "fatekeeper/price",
+      "fatekeeper/system-requirements",
+      "fatekeeper/steam-deck"
+    ]
+  }),
+  page({
+    slug: "fatekeeper/reviews",
+    title: "Fatekeeper Reviews: Early Access Impressions, Performance and Buy-Wait Status",
+    h1: "Fatekeeper Reviews",
+    description:
+      "Track Fatekeeper review status, Early Access impressions, performance reports, Steam user reviews, and what must be verified after launch.",
+    category: "Launch Readiness",
+    intent: "buy",
+    status: "Needs Post-Launch Testing",
+    lastUpdated,
+    heroImage: media.combat,
+    quickAnswer:
+      "Full Fatekeeper reviews and reliable Steam user-review patterns need the playable Early Access build. Before launch, use this page as a review checklist: combat feel, performance, content length, bugs, Steam Deck behavior, controller input, and whether two hours of launch content feels worth the price.",
+    takeaways: [
+      "Review searches will spike at launch, but pre-launch review claims are not reliable without hands-on play.",
+      "The first review update should separate critic previews, Steam user reviews, and tested guide notes.",
+      "Performance and content length matter more than broad hype for buying decisions.",
+      "No score, verdict, or best-build claim should appear before evidence exists."
+    ],
+    sections: [
+      launchSections.sourceBackedEa,
+      {
+        heading: "What reviews need to answer first",
+        body: [
+          "Fatekeeper review content should be practical, not decorative. The first questions are whether combat feels responsive, whether the listed PC requirements are accurate, whether the Early Access slice feels substantial, and whether bugs block progress.",
+          "The review page should not pretend to have a final verdict before the build is playable. It should publish a clear testing framework and then replace placeholders with evidence."
+        ],
+        table: {
+          caption: "Review evidence checklist",
+          headers: ["Review area", "What to measure", "Publish when"],
+          rows: [
+            ["Combat feel", "Hit feedback, blocking, dodging, spell safety", "After hands-on testing"],
+            ["Performance", "Resolution, preset, GPU, RAM, stutter, crashes", "After hardware notes"],
+            ["Content length", "Actual first-build completion time", "After finishing the EA slice"],
+            ["Steam Deck", "Frame cap, controls, readability, battery", "After Deck test"],
+            ["Value", "Price versus two-hour scope and replay value", "After price and playtime are known"]
+          ]
+        }
+      },
+      {
+        heading: "How to read early user reviews",
+        body: [
+          "Launch-day Steam reviews can be useful, but they are noisy. Separate technical complaints from design complaints, and separate players who expected a finished campaign from players who knowingly bought a short Early Access slice.",
+          "A real review summary needs sample size, patch version, hardware notes, and repeated issue patterns."
+        ]
+      },
+      verificationSection("review status")
+    ],
+    faqs: [
+      {
+        question: "Are there Fatekeeper reviews yet?",
+        answer:
+          "Reliable Fatekeeper reviews need the playable Early Access build. Before launch, treat review pages as previews or testing plans, not final verdicts."
+      },
+      {
+        question: "What should a Fatekeeper review check first?",
+        answer:
+          "A useful Fatekeeper review should check combat feel, performance, bugs, content length, price value, controller input, and Steam Deck behavior."
+      },
+      {
+        question: "Should I trust launch-day Steam reviews?",
+        answer:
+          "Use launch-day Steam reviews carefully. Look for repeated technical issues, hardware details, playtime, and whether reviewers understood the Early Access scope."
+      },
+      {
+        question: "Will this page publish a score?",
+        answer:
+          "No score should be published before hands-on testing. The first useful update is evidence, not a fake rating."
+      }
+    ],
+    sources: [sourceLinks.steam, sourceLinks.official, sourceLinks.thqGameplay, sourceLinks.youtubeGameplay],
+    related: [
+      "fatekeeper/is-it-worth-it",
+      "fatekeeper/price",
+      "fatekeeper/early-access",
+      "fatekeeper/system-requirements",
+      "fatekeeper/dark-messiah-comparison"
+    ],
+    featured: true
+  }),
+  page({
     slug: "fatekeeper/world",
     title: "Fatekeeper World Guide: Secrets, Puzzles and Hidden Loot",
     h1: "Fatekeeper World and Exploration",
@@ -1558,9 +2207,26 @@ export const homeClusters = [
       "fatekeeper/release-date",
       "fatekeeper/early-access",
       "fatekeeper/is-it-worth-it",
+      "fatekeeper/price",
+      "fatekeeper/demo-preload",
+      "fatekeeper/platforms",
+      "fatekeeper/multiplayer-coop",
+      "fatekeeper/reviews",
       "fatekeeper/system-requirements",
       "fatekeeper/steam-deck",
       "fatekeeper/controller-support"
+    ]
+  },
+  {
+    title: "Search Questions",
+    description: "Direct answers to Reddit, YouTube, and Steam Community demand.",
+    pages: [
+      "fatekeeper/dark-messiah-comparison",
+      "fatekeeper/multiplayer-coop",
+      "fatekeeper/price",
+      "fatekeeper/platforms",
+      "fatekeeper/demo-preload",
+      "fatekeeper/reviews"
     ]
   },
   {

@@ -49,54 +49,68 @@ export default async function DynamicGuidePage({ params }: PageProps) {
   }
 
   const relatedGuides = getGuides(page.related);
+  const jsonLd: Record<string, unknown>[] = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: page.title,
+      description: page.description,
+      image: page.heroImage,
+      datePublished: page.lastUpdated,
+      dateModified: page.lastUpdated,
+      author: {
+        "@type": "Organization",
+        name: siteConfig.author
+      },
+      publisher: {
+        "@type": "Organization",
+        name: siteConfig.shortName,
+        logo: {
+          "@type": "ImageObject",
+          url: media.box
+        }
+      },
+      citation: page.sources.map((source) => source.url),
+      mainEntityOfPage: `${siteConfig.domain}/${page.slug}`
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteConfig.domain
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: page.h1,
+          item: `${siteConfig.domain}/${page.slug}`
+        }
+      ]
+    }
+  ];
+
+  if (page.faqs?.length) {
+    jsonLd.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer
+        }
+      }))
+    });
+  }
 
   return (
     <>
-      <JsonLd
-        data={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Article",
-            headline: page.title,
-            description: page.description,
-            image: page.heroImage,
-            datePublished: page.lastUpdated,
-            dateModified: page.lastUpdated,
-            author: {
-              "@type": "Organization",
-              name: siteConfig.author
-            },
-            publisher: {
-              "@type": "Organization",
-              name: siteConfig.shortName,
-              logo: {
-                "@type": "ImageObject",
-                url: media.box
-              }
-            },
-            citation: page.sources.map((source) => source.url),
-            mainEntityOfPage: `${siteConfig.domain}/${page.slug}`
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "BreadcrumbList",
-            itemListElement: [
-              {
-                "@type": "ListItem",
-                position: 1,
-                name: "Home",
-                item: siteConfig.domain
-              },
-              {
-                "@type": "ListItem",
-                position: 2,
-                name: page.h1,
-                item: `${siteConfig.domain}/${page.slug}`
-              }
-            ]
-          }
-        ]}
-      />
+      <JsonLd data={jsonLd} />
       <GuideLayout page={page} />
       <RelatedGuides guides={relatedGuides} />
     </>

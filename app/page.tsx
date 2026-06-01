@@ -22,6 +22,16 @@ const routeCards = [
     body: "Content length, launch risks, update expectations, and what needs hands-on testing."
   },
   {
+    label: "Price and platforms",
+    href: "/fatekeeper/price",
+    body: "Discount wording, Steam regional price checks, PS5, Xbox, console, and Game Pass status."
+  },
+  {
+    label: "Dark Messiah fit",
+    href: "/fatekeeper/dark-messiah-comparison",
+    body: "Dark Messiah-like, Skyrim-like, reactive combat, physics, and kick-style expectations."
+  },
+  {
     label: "First hour plan",
     href: "/fatekeeper/first-hours-guide",
     body: "What to learn first, how to read combat pressure, and which choices should stay flexible."

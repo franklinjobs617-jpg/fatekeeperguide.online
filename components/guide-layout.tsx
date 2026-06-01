@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { GuidePage } from "@/lib/guides";
 import { media } from "@/lib/site";
 import { DataTable } from "./data-table";
+import { GuideFaqList } from "./guide-faq";
 import { PlayerQuestions } from "./player-questions";
 import { SourceList } from "./source-list";
 import { StatusBadge } from "./status-badge";
@@ -73,6 +74,11 @@ export function GuideLayout({ page }: { page: GuidePage }) {
                 {section.heading}
               </a>
             ))}
+            {Boolean(page.faqs?.length) && (
+              <a href="#faq" className="pill">
+                FAQ
+              </a>
+            )}
             <a href="#sources" className="pill">
               Sources
             </a>
@@ -129,6 +135,8 @@ export function GuideLayout({ page }: { page: GuidePage }) {
               )}
             </section>
           ))}
+
+          <GuideFaqList faqs={page.faqs ?? []} />
 
           <section id="sources" className="article-section scroll-mt-28">
             <h2>Sources and verification status</h2>

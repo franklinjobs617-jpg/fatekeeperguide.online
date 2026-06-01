@@ -2,15 +2,21 @@
 > Unofficial English Fatekeeper guide hub for Early Access buying decisions, beginner systems, builds, databases, enemies, bosses, and world exploration.
 
 ## Core Pages
-- [Homepage](https://fatekeeperguide.com): Guide hub with release facts, search demand, source policy, and major guide clusters.
-- [Fatekeeper Release Date](https://fatekeeperguide.com/fatekeeper/release-date): Early Access release timing, UTC conversion, platform status, and pre-launch checklist.
-- [Fatekeeper Early Access](https://fatekeeperguide.com/fatekeeper/early-access): Content scope, buy/wait risks, update expectations, and launch-week testing plan.
-- [Fatekeeper System Requirements](https://fatekeeperguide.com/fatekeeper/system-requirements): CPU, GPU, RAM, DirectX, storage, and conservative PC fit guidance.
-- [Fatekeeper Beginner Guide](https://fatekeeperguide.com/fatekeeper/beginner-guide): First-session priorities, combat habits, upgrades, exploration, and early mistakes.
-- [Fatekeeper Builds](https://fatekeeperguide.com/fatekeeper/builds): Beginner, spellblade, heavy, dagger, and best-build confidence pages.
-- [Fatekeeper Weapons](https://fatekeeperguide.com/fatekeeper/weapons): Weapon database fields, categories, scaling questions, locations, and build links.
-- [Fatekeeper Spells](https://fatekeeperguide.com/fatekeeper/spells): Spell roles, mana/cooldown fields, scaling, unlocks, and combo testing.
-- [Fatekeeper Bosses](https://fatekeeperguide.com/fatekeeper/bosses): Boss strategy format, attack patterns, rewards, spoiler rules, and verification status.
+- [Homepage](https://fatekeeperguide.online): Guide hub with release facts, search demand, source policy, and major guide clusters.
+- [Fatekeeper Release Date](https://fatekeeperguide.online/fatekeeper/release-date): Early Access release timing, UTC conversion, platform status, and pre-launch checklist.
+- [Fatekeeper Early Access](https://fatekeeperguide.online/fatekeeper/early-access): Content scope, buy/wait risks, update expectations, and launch-week testing plan.
+- [Fatekeeper Price](https://fatekeeperguide.online/fatekeeper/price): Early Access discount, regional Steam price checks, preorder status, and buy-wait value.
+- [Fatekeeper Platforms](https://fatekeeperguide.online/fatekeeper/platforms): PC, Steam, PS5, Xbox, console, Game Pass, and Steam Deck platform status.
+- [Fatekeeper Co-op](https://fatekeeperguide.online/fatekeeper/multiplayer-coop): Co-op, multiplayer, online play, and single-player launch expectations.
+- [Fatekeeper Demo and Preload](https://fatekeeperguide.online/fatekeeper/demo-preload): Demo, preload, early download, launch countdown, and Steam unlock status.
+- [Fatekeeper Dark Messiah Comparison](https://fatekeeperguide.online/fatekeeper/dark-messiah-comparison): Dark Messiah-like, Skyrim-like, reactive combat, physics, and kick-style expectations.
+- [Fatekeeper Reviews](https://fatekeeperguide.online/fatekeeper/reviews): Early Access review status, performance checks, player impressions, and buy-wait signals.
+- [Fatekeeper System Requirements](https://fatekeeperguide.online/fatekeeper/system-requirements): CPU, GPU, RAM, DirectX, storage, and conservative PC fit guidance.
+- [Fatekeeper Beginner Guide](https://fatekeeperguide.online/fatekeeper/beginner-guide): First-session priorities, combat habits, upgrades, exploration, and early mistakes.
+- [Fatekeeper Builds](https://fatekeeperguide.online/fatekeeper/builds): Beginner, spellblade, heavy, dagger, and best-build confidence pages.
+- [Fatekeeper Weapons](https://fatekeeperguide.online/fatekeeper/weapons): Weapon database fields, categories, scaling questions, locations, and build links.
+- [Fatekeeper Spells](https://fatekeeperguide.online/fatekeeper/spells): Spell roles, mana/cooldown fields, scaling, unlocks, and combo testing.
+- [Fatekeeper Bosses](https://fatekeeperguide.online/fatekeeper/bosses): Boss strategy format, attack patterns, rewards, spoiler rules, and verification status.
 
 ## Source Policy
 - Confirmed facts use Steam, the official Fatekeeper site, THQ Nordic, and official YouTube videos.

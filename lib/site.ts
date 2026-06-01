@@ -58,9 +58,37 @@ export const sourceLinks = {
     label: "YouTube announcement trailer",
     url: "https://www.youtube.com/watch?v=x9xHZodgC2Y"
   },
+  youtubeDarkMessiahWolfheart: {
+    label: "YouTube Dark Messiah comparison",
+    url: "https://www.youtube.com/watch?v=J9rtFh3kHyc"
+  },
+  youtubeDarkMessiahLuna: {
+    label: "YouTube Dark Messiah question",
+    url: "https://www.youtube.com/watch?v=65AES8BH0ZA"
+  },
+  youtubeExtendedDemo: {
+    label: "YouTube extended gameplay demo",
+    url: "https://www.youtube.com/watch?v=rbqI0VuyyKI"
+  },
   redditGameplay: {
     label: "Reddit gameplay reveal discussion",
     url: "https://www.reddit.com/r/Games/comments/1p18gif/fatekeeper_official_gameplay_reveal_trailer/"
+  },
+  redditDarkMessiah: {
+    label: "Reddit Dark Messiah discussion",
+    url: "https://www.reddit.com/r/Games/comments/1mhej57/fatekeeper_looks_like_a_spiritual_successor_to/"
+  },
+  steamCommunityCoop: {
+    label: "Steam Community co-op discussion",
+    url: "https://steamcommunity.com/app/2186990/discussions/0/600785448933229324/"
+  },
+  steamCommunityDarkMessiah: {
+    label: "Steam Community Dark Messiah discussion",
+    url: "https://steamcommunity.com/app/2186990/discussions/0/600785827026481658/"
+  },
+  rpsDarkMessiah: {
+    label: "Rock Paper Shotgun Dark Messiah coverage",
+    url: "https://www.rockpapershotgun.com/fatekeeper-looks-like-a-spiritual-successor-to-dark-messiah-but-wheres-the-kick"
   },
   pcgamer: {
     label: "PC Gamer coverage",
