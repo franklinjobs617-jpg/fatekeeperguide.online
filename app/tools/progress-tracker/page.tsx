@@ -26,6 +26,9 @@ export default function ProgressTracker() {
   return (
     <main className="container py-8">
       <div className="surface p-4 mb-6"><p className="text-[13px] leading-6 text-silver-text">{TOOL_NOTICE}</p></div>
+      <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl border border-graphite mb-8">
+        <img src="/images/fatekeeper-extended-demo.jpg" alt="Fatekeeper Progress Tracker — track your campaign" className="h-full w-full object-cover" />
+      </div>
       <Link href="/" className="btn-ghost mb-6 inline-block">← Home</Link>
       <h1 className="section-title mt-4">Progress Tracker</h1>
       <p className="mt-3 text-[16px] leading-7 text-off-white max-w-3xl">Track your Fatekeeper campaign. Check off areas, weapons, and spells as you progress. Data saved to your browser.</p>

@@ -58,6 +58,9 @@ export default function BuildPlanner() {
   return (
     <main className="container py-8">
       <div className="surface p-4 mb-6"><p className="text-[13px] leading-6 text-silver-text">{TOOL_NOTICE}</p></div>
+      <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl border border-graphite mb-8">
+        <img src="/images/fatekeeper-announcement.jpg" alt="Fatekeeper Build Planner — plan your character build" className="h-full w-full object-cover" />
+      </div>
       <Link href="/" className="btn-ghost mb-6 inline-block">← Home</Link>
       <h1 className="section-title mt-4">Build Planner</h1>
       <p className="mt-3 text-[16px] leading-7 text-off-white max-w-3xl">Plan your Fatekeeper build. Select a starter template, customize weapons and relics, and save your loadout. Data saved to your browser.</p>

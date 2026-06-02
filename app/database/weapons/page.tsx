@@ -27,6 +27,9 @@ export default function WeaponsDb() {
   return (
     <main className="container py-8">
       <div className="surface p-4 mb-6"><p className="text-[13px] leading-6 text-silver-text">{TOOL_NOTICE}</p></div>
+      <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl border border-graphite mb-8">
+        <img src="/images/fatekeeper-gameplay-reveal.jpg" alt="Fatekeeper weapons and spells database" className="h-full w-full object-cover" />
+      </div>
       <Link href="/" className="btn-ghost mb-6 inline-block">← Home</Link>
       <h1 className="section-title mt-4">Weapons & Spells Database</h1>
       <p className="mt-3 text-[16px] leading-7 text-off-white max-w-3xl">All verified weapons, spells, and relics from Fatekeeper Early Access. Data sourced from Xmodhub guide and community testing.</p>
