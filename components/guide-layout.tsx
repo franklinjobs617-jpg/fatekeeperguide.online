@@ -127,6 +127,16 @@ export function GuideLayout({ page }: { page: GuidePage }) {
                   ))}
                 </ul>
               )}
+              {section.image && (
+                <div className="mt-5 relative aspect-video w-full overflow-hidden rounded-xl border border-graphite">
+                  <Image src={section.image} alt={section.imageAlt ?? section.heading} fill sizes="(max-width: 768px) 100vw, 780px" className="object-cover" />
+                </div>
+              )}
+              {section.videoId && (
+                <div className="mt-5 relative aspect-video w-full overflow-hidden rounded-xl border border-graphite">
+                  <iframe src={`https://www.youtube.com/embed/${section.videoId}`} title={section.heading} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="absolute inset-0 w-full h-full" />
+                </div>
+              )}
               {section.table && <DataTable table={section.table} />}
               {section.note && (
                 <p className="note-panel mt-5 rounded-xl border border-cadmium-green bg-cadmium-green p-4 font-mono text-[14px] leading-6">

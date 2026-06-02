@@ -28,6 +28,9 @@ export type GuideSection = {
   bullets?: string[];
   table?: GuideTable;
   note?: string;
+  image?: string;
+  imageAlt?: string;
+  videoId?: string;
 };
 
 export type GuidePage = {
@@ -363,7 +366,7 @@ export const guidePages: GuidePage[] = [
     intent: "buy",
     status: "Official Info",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer: `Fatekeeper is scheduled for Early Access on ${fatekeeperFacts.releaseLabel}, which is ${fatekeeperFacts.beijingLabel}. The listed launch platform is ${fatekeeperFacts.platform}. Check the Steam page close to unlock because store timing, preload notes, and final requirement wording can change near release.`,
     takeaways: [
       `Current listed release timing: ${fatekeeperFacts.releaseLabel}.`,
@@ -716,7 +719,7 @@ export const guidePages: GuidePage[] = [
     intent: "learn",
     status: "Pre-release Analysis",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-wildgamer-demo.jpg",
     quickAnswer:
       "New Fatekeeper players should treat the first hours as a systems test: learn enemy patterns, compare weapon reach, try at least one spell path, inspect relic effects, and avoid locking your identity around an untested build before the Early Access balance is known.",
     takeaways: [
@@ -726,6 +729,14 @@ export const guidePages: GuidePage[] = [
       "Use build pages as planning tools until stats are tested."
     ],
     sections: [
+      {
+        heading: "Watch the 15-Minute Gameplay Demo First",
+        body: [
+          "WildGamerSK's 15-minute gameplay demo is the best pre-purchase visual reference. Watch it to see real combat pacing, weapon variety, enemy behavior, UI layout, and environment design — then use the guide below to plan your first session.",
+          "Key moments: 0:30 weapon selection UI, 1:15 first enemy encounter, 3:42 inventory and gear, 7:18 first boss arena entrance."
+        ],
+        videoId: "-x_QMmlccy0",
+      },
       {
         heading: "First priorities",
         body: [
@@ -845,7 +856,7 @@ export const guidePages: GuidePage[] = [
     intent: "learn",
     status: "Needs Post-Launch Testing",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer:
       "In your first hours, prioritize learning combat feel, testing at least two weapon styles, trying utility magic, and recording upgrade costs before committing. This page will become a verified route after Early Access is playable.",
     takeaways: [
@@ -906,7 +917,7 @@ export const guidePages: GuidePage[] = [
     intent: "learn",
     status: "Pre-release Analysis",
     lastUpdated,
-    heroImage: media.combat,
+    heroImage: "/images/fatekeeper-gameplay-reveal.jpg",
     quickAnswer:
       "Approach Fatekeeper combat as a pattern-reading system with build tools layered on top. Start by learning spacing, timing, defense, and spell utility before judging which weapon or build is best.",
     takeaways: [
@@ -916,6 +927,14 @@ export const guidePages: GuidePage[] = [
       "Exact weaknesses and boss strategy need post-launch proof."
     ],
     sections: [
+      {
+        heading: "Official 8-Minute Gameplay Reveal",
+        body: [
+          "The THQ Nordic official gameplay reveal is the best pre-purchase combat reference. Watch it to see the full combat rhythm: melee timing, spell casting, blocking, dodging, and environmental interaction in action.",
+          "Pay attention to: swing recovery frames, enemy windup tells, spell cast animations, and how quickly you can chain attacks into blocks."
+        ],
+        videoId: "ZeBHDscQKOE",
+      },
       {
         heading: "Combat fundamentals",
         body: [
@@ -1152,7 +1171,7 @@ export const guidePages: GuidePage[] = [
     intent: "build",
     status: "Needs Post-Launch Testing",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer:
       "The safest beginner build is a flexible setup: reliable melee timing, one utility spell, defensive habits, and delayed heavy investment until upgrade costs and respec rules are known.",
     takeaways: [
@@ -1597,7 +1616,7 @@ export const guidePages: GuidePage[] = [
     intent: "solve",
     status: "Needs Post-Launch Testing",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer:
       "Boss guides must wait for hands-on testing. This page defines the boss guide format: spoiler control, phase notes, attack patterns, punish windows, recommended builds, rewards, and patch version.",
     takeaways: [
@@ -1653,7 +1672,7 @@ export const guidePages: GuidePage[] = [
     intent: "learn",
     status: "Pre-release Analysis",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-gameplay-reveal.jpg",
     quickAnswer:
       "New players should start as Exiled Mercenary (highest HP, safest) or Fallen Knight (tower shield tank). Experienced action RPG players can try Shadow-Dancer (bleed/agility) or Wandering Scholar (magic/status effects). Respec is locked behind an Act 2 boss — your class choice matters early.",
     takeaways: [
@@ -1711,7 +1730,7 @@ export const guidePages: GuidePage[] = [
     intent: "buy",
     status: "Official Info",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-extended-demo.jpg",
     quickAnswer:
       "Fatekeeper Early Access launches with about 2 hours of content. The full 1.0 release is planned for about 15 hours of content. Early Access is expected to last approximately 18 months, with content updates throughout.",
     takeaways: [
@@ -1767,7 +1786,7 @@ export const guidePages: GuidePage[] = [
     intent: "learn",
     status: "Pre-release Analysis",
     lastUpdated,
-    heroImage: media.combat,
+    heroImage: "/images/fatekeeper-dark-messiah.jpg",
     quickAnswer:
       "Fatekeeper is being searched and discussed as a Dark Messiah-like first-person fantasy RPG, but the comparison should stay limited before launch. Official material supports first-person sword and sorcery, reactive combat, progression, spells, relics, and handcrafted spaces; exact physics depth, kick-style interactions, enemy behavior, and build freedom need hands-on testing.",
     takeaways: [
@@ -1862,7 +1881,7 @@ export const guidePages: GuidePage[] = [
     intent: "buy",
     status: "Official Info",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer:
       "Fatekeeper should be treated as a single-player first-person RPG for Early Access. Do not buy it expecting co-op, online multiplayer, or a shared campaign unless Steam or the developer publishes a different official update.",
     takeaways: [
@@ -2106,7 +2125,7 @@ export const guidePages: GuidePage[] = [
     intent: "buy",
     status: "Official Info",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer:
       "Use Steam as the final source for Fatekeeper demo, preload, download size, and unlock state. Before launch, do not assume a demo or preload exists unless Steam shows it directly on the app page.",
     takeaways: [
@@ -2265,7 +2284,7 @@ export const guidePages: GuidePage[] = [
     intent: "solve",
     status: "Needs Post-Launch Testing",
     lastUpdated,
-    heroImage: media.hero,
+    heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer:
       "The world guide helps you explore without fake map data. It tracks secret areas, puzzles, locked doors, hidden loot, dungeon walkthroughs, and route notes after those findings are verified in Early Access.",
     takeaways: [
