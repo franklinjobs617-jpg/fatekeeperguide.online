@@ -15,6 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(page.lastUpdated),
       changeFrequency: "daily" as const,
       priority: page.featured ? 0.9 : 0.75
-    }))
+    })),
+    { url: `${siteConfig.domain}/database/weapons`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.9 },
+    { url: `${siteConfig.domain}/tools/build-planner`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.9 },
+    { url: `${siteConfig.domain}/tools/progress-tracker`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.85 },
   ];
 }

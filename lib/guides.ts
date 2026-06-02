@@ -1644,6 +1644,120 @@ export const guidePages: GuidePage[] = [
     ]
   }),
   page({
+    slug: "fatekeeper/classes",
+    title: "Fatekeeper Classes Guide: All Starting Classes Compared",
+    h1: "Fatekeeper Classes",
+    description:
+      "Compare all Fatekeeper starting classes: Exiled Mercenary, Fallen Knight, Shadow-Dancer, and Wandering Scholar. Base stats, difficulty, best builds, and Early Access advice.",
+    category: "Beginner Tutorials",
+    intent: "learn",
+    status: "Pre-release Analysis",
+    lastUpdated,
+    heroImage: media.hero,
+    quickAnswer:
+      "New players should start as Exiled Mercenary (highest HP, safest) or Fallen Knight (tower shield tank). Experienced action RPG players can try Shadow-Dancer (bleed/agility) or Wandering Scholar (magic/status effects). Respec is locked behind an Act 2 boss — your class choice matters early.",
+    takeaways: [
+      "Exiled Mercenary is the most forgiving starting class for new players.",
+      "Fallen Knight excels at shield-based tank builds.",
+      "Shadow-Dancer rewards aggressive melee with bleed weapons.",
+      "Wandering Scholar is the magic/Arcane specialist.",
+      "Respec is 20-25 hours away — choose carefully."
+    ],
+    sections: [
+      {
+        heading: "Starting Class Comparison",
+        body: [
+          "Fatekeeper has 4 starting classes verified from pre-release testing. Each class determines your starting equipment, base stats, and early-game playstyle. Because respec requires beating an Act 2 boss (~20-25 hours), your starting class shapes a significant portion of your first playthrough."
+        ],
+        table: {
+          caption: "Class comparison table",
+          headers: ["Class", "Difficulty", "Best Stat", "Playstyle", "Best For"],
+          rows: [
+            ["Exiled Mercenary", "Beginner", "Vigor (highest base HP)", "Shield + broadsword. Block, punish, survive.", "First playthrough, learning enemies"],
+            ["Fallen Knight", "Beginner", "Strength", "Tower shield + halberd. Shield-poke while blocking.", "Tank builds, defensive play"],
+            ["Shadow-Dancer", "Intermediate", "Dexterity (rush to 30)", "Daggers/twinblades. Dodge, bleed, Jumping Heavy Attacks.", "Aggressive melee, fast-roll builds"],
+            ["Wandering Scholar", "Intermediate", "Arcane (rush to 25)", "Catalyst + Miasma Orb. Toxic stacking, ranged magic.", "Status effect builds, spellcasters"]
+          ]
+        }
+      },
+      {
+        heading: "Which Class Should You Pick?",
+        body: [
+          "If you are new to action RPGs or want the safest first playthrough, pick Exiled Mercenary. The high base HP and shield let you survive mistakes while learning enemy patterns.",
+          "If you want to play a tank that absorbs hits and pokes safely from behind a shield, pick Fallen Knight. Pair with the Iron-wood Tower Shield (Cinder Keep) and Halberd.",
+          "If you want fast, aggressive melee with bleed damage, pick Shadow-Dancer. Rush the Obsidian Dagger (Whispering Woods) or Serrated Twinblades (Ruined Bastion).",
+          "If you prefer magic and status effects, pick Wandering Scholar. Rush the Plague-bearer's Catalyst and Miasma Orb (both in Whispering Woods). Stack Toxic on bosses and survive while it ticks."
+        ],
+        bullets: [
+          "Beginners: Exiled Mercenary > Fallen Knight > Shadow-Dancer > Wandering Scholar",
+          "Experienced players: Shadow-Dancer or Wandering Scholar based on preferred playstyle",
+          "All classes: rush Vigor to 25 first, then your main damage stat to 30",
+          "Do NOT spread stats across STR/DEX/ARC — specialize in one offense stat"
+        ]
+      },
+      verificationSection("starting classes")
+    ],
+    sources: coreSources,
+    related: ["fatekeeper/builds", "fatekeeper/beginner-guide", "fatekeeper/weapons", "fatekeeper/combat-guide"],
+    featured: true
+  }),
+  page({
+    slug: "fatekeeper/how-long-to-beat",
+    title: "How Long Is Fatekeeper? Early Access Play Time and Full Release",
+    h1: "How Long Is Fatekeeper?",
+    description:
+      "Fatekeeper play time: Early Access launch is about 2 hours of content. Full 1.0 release targets about 15 hours. Early Access planned for ~18 months with content updates.",
+    category: "Launch Readiness",
+    intent: "buy",
+    status: "Official Info",
+    lastUpdated,
+    heroImage: media.hero,
+    quickAnswer:
+      "Fatekeeper Early Access launches with about 2 hours of content. The full 1.0 release is planned for about 15 hours of content. Early Access is expected to last approximately 18 months, with content updates throughout.",
+    takeaways: [
+      "Early Access launch: ~2 hours of content.",
+      "Full 1.0 target: ~15 hours.",
+      "Early Access window: ~18 months planned.",
+      "Buy Early Access only if you accept a short first slice.",
+      "Wait for 1.0 if you want a complete campaign."
+    ],
+    sections: [
+      {
+        heading: "Play Time Breakdown",
+        body: [
+          "Fatekeeper's play time varies dramatically depending on when you buy it. The Early Access launch build is explicitly short — Steam describes it as about 2 hours of content. This is a first slice designed for testing and feedback, not a finished campaign.",
+          "The full 1.0 release targets about 15 hours of content, with the Early Access period expected to last approximately 18 months. During that time, content updates will progressively expand the game."
+        ],
+        table: {
+          caption: "Play time by version",
+          headers: ["Version", "Content Length", "Status", "Best For"],
+          rows: [
+            ["Early Access launch (June 2026)", "~2 hours", "Live", "Testing combat, giving feedback, lower price"],
+            ["Mid Early Access (2026-2027)", "Growing with updates", "Planned", "Players who want to follow development"],
+            ["1.0 Full Release (~late 2027)", "~15 hours", "Planned", "Players who want a complete campaign"]
+          ]
+        }
+      },
+      {
+        heading: "Should You Buy Now or Wait?",
+        body: [
+          "The two-hour Early Access scope is the single most important buying fact. If you want to test first-person fantasy combat early, support development, and get the discounted Early Access price — buy now.",
+          "If you want a complete story, final balance, stable performance, and enough content to justify a full-price RPG — wait for 1.0 or at least several major content updates."
+        ],
+        bullets: [
+          "Buy now: you want to test combat, accept 2-hour scope, want the discount.",
+          "Wait: you want a complete campaign, stable performance, final balance.",
+          "Check Steam reviews: once enough players finish the EA build, real play-time data will emerge.",
+          "Replay value: modifiers, build experimentation, and New Game Plus are unconfirmed."
+        ]
+      },
+      verificationSection("play time estimates")
+    ],
+    sources: [sourceLinks.steam, sourceLinks.official],
+    related: ["fatekeeper/early-access", "fatekeeper/reviews", "fatekeeper/is-it-worth-it", "fatekeeper/price"],
+    featured: true
+  }),
+  page({
     slug: "fatekeeper/dark-messiah-comparison",
     title: "Is Fatekeeper Like Dark Messiah? Combat, Magic and Physics Comparison",
     h1: "Is Fatekeeper Like Dark Messiah?",
@@ -2212,6 +2326,7 @@ export const homeClusters = [
       "fatekeeper/platforms",
       "fatekeeper/multiplayer-coop",
       "fatekeeper/reviews",
+      "fatekeeper/how-long-to-beat",
       "fatekeeper/system-requirements",
       "fatekeeper/steam-deck",
       "fatekeeper/controller-support"
@@ -2234,6 +2349,7 @@ export const homeClusters = [
     description: "Learn the systems before wasting upgrades.",
     pages: [
       "fatekeeper/beginner-guide",
+      "fatekeeper/classes",
       "fatekeeper/tips-and-tricks",
       "fatekeeper/first-hours-guide",
       "fatekeeper/combat-guide",
