@@ -48,6 +48,16 @@ const routeCards = [
     body: "Beginner, spellblade, heavy, and dagger plans with clear confidence labels."
   },
   {
+    label: "Build planner tool",
+    href: "/tools/build-planner",
+    body: "Save a Fatekeeper loadout locally with source-labeled weapon, relic, spell, and mechanic data."
+  },
+  {
+    label: "Progress tracker tool",
+    href: "/tools/progress-tracker",
+    body: "Track found weapons, spells, relics, and reported areas without losing the wiki evidence labels."
+  },
+  {
     label: "Gear and magic data",
     href: "/wiki/weapons",
     body: "Weapon, spell, and relic entries with source confidence and related build links."

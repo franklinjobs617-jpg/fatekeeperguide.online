@@ -117,6 +117,9 @@ export default function WikiHomePage() {
           <Link href="/fatekeeper/weapons" className="btn-ghost">
             Weapon guide hub
           </Link>
+          <Link href="/database/weapons" className="btn-ghost">
+            Merged database view
+          </Link>
         </div>
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {featuredEntities.map((entity) => (
