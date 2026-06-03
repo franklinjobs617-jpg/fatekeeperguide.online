@@ -10,14 +10,14 @@ const tomorrow = Tomorrow({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-tomorrow",
-  display: "swap"
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-geist-mono",
-  display: "swap"
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -29,36 +29,49 @@ export const metadata: Metadata = {
       {
         url: "/icon.png",
         type: "image/png",
-        sizes: "512x512"
-      }
+        sizes: "512x512",
+      },
     ],
     shortcut: "/icon.png",
     apple: [
       {
         url: "/apple-icon.png",
         type: "image/png",
-        sizes: "180x180"
-      }
-    ]
+        sizes: "180x180",
+      },
+    ],
   },
   openGraph: {
     title: siteConfig.defaultTitle,
     description: siteConfig.description,
     url: siteConfig.domain,
     siteName: siteConfig.name,
-    type: "website"
+    type: "website",
   },
   robots: {
     index: true,
-    follow: true
-  }
+    follow: true,
+  },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${tomorrow.variable} ${geistMono.variable}`}>
       <body>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-PMT8RLKEZN" strategy="afterInteractive" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PMT8RLKEZN"
+          strategy="afterInteractive"
+        />
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-3383070348689557"
+        ></meta>
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3383070348689557"
+          crossOrigin="anonymous"
+        ></Script>
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -77,13 +90,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             publisher: {
               "@type": "Organization",
               name: siteConfig.shortName,
-              url: siteConfig.domain
+              url: siteConfig.domain,
             },
             potentialAction: {
               "@type": "SearchAction",
               target: `${siteConfig.domain}/?q={search_term_string}`,
-              "query-input": "required name=search_term_string"
-            }
+              "query-input": "required name=search_term_string",
+            },
           }}
         />
         <div className="paper-shell">
@@ -91,9 +104,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
           <footer className="container py-12">
             <div className="flex flex-col gap-4 border-t border-graphite pt-7 md:flex-row md:items-center md:justify-between">
-              <p className="text-[14px] font-medium text-silver-text">{siteConfig.disclaimer}</p>
               <p className="text-[14px] font-medium text-silver-text">
-                Updated for post-launch wiki evidence, Early Access facts, and source-labeled reports.
+                {siteConfig.disclaimer}
+              </p>
+              <p className="text-[14px] font-medium text-silver-text">
+                Updated for post-launch wiki evidence, Early Access facts, and
+                source-labeled reports.
               </p>
             </div>
           </footer>
