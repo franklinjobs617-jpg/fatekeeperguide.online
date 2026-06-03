@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { builds, weapons, spells, mechanics, TOOL_NOTICE } from '@/lib/game-data';
 
@@ -13,13 +14,11 @@ function save(b: SavedBuild[]) { try { localStorage.setItem(STORAGE_KEY, JSON.st
 
 export default function BuildPlanner() {
   const [selectedBuild, setSelectedBuild] = useState('shadow_dancer');
-  const [selWeapons, setSelWeapons] = useState<string[]>(['obsidian_dagger', 'ring_of_leech']);
-  const [selSpells, setSelSpells] = useState<string[]>([]);
+  const [selWeapons, setSelWeapons] = useState<string[]>(['obsidian_dagger']);
+  const [selSpells, setSelSpells] = useState<string[]>(['ring_of_leech']);
   const [buildName, setBuildName] = useState('');
-  const [savedBuilds, setSavedBuilds] = useState<SavedBuild[]>([]);
+  const [savedBuilds, setSavedBuilds] = useState<SavedBuild[]>(() => load());
   const [notes, setNotes] = useState('');
-
-  useEffect(() => { setSavedBuilds(load()); }, []);
 
   const toggleW = (id: string) => setSelWeapons(p => p.includes(id) ? p.filter(x => x !== id) : [...p, id]);
   const toggleS = (id: string) => setSelSpells(p => p.includes(id) ? p.filter(x => x !== id) : [...p, id]);
@@ -59,7 +58,7 @@ export default function BuildPlanner() {
     <main className="container py-8">
       <div className="surface p-4 mb-6"><p className="text-[13px] leading-6 text-silver-text">{TOOL_NOTICE}</p></div>
       <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl border border-graphite mb-8">
-        <img src="/images/fatekeeper-announcement.jpg" alt="Fatekeeper Build Planner — plan your character build" className="h-full w-full object-cover" />
+        <Image src="/images/fatekeeper-announcement.jpg" alt="Fatekeeper Build Planner - plan your character build" fill sizes="(max-width: 768px) 100vw, 1200px" className="object-cover" />
       </div>
       <Link href="/" className="btn-ghost mb-6 inline-block">← Home</Link>
       <h1 className="section-title mt-4">Build Planner</h1>

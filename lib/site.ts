@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: "Fatekeeper Guide Library",
-  shortName: "Fatekeeper Guide",
-  defaultTitle: "Fatekeeper Guide: Builds, Release Date & Tips",
+  name: "Fatekeeper Wiki and Guide",
+  shortName: "Fatekeeper Wiki",
+  defaultTitle: "Fatekeeper Wiki: Weapons, Builds, Relics & Guide",
   domain: "https://fatekeeperguide.online",
   description:
-    "Plan your Fatekeeper run with release timing, Early Access advice, PC requirements, beginner tips, builds, weapons, spells, relics, bosses, and source-backed updates.",
+    "Browse the Fatekeeper wiki and guide with evidence-labeled weapons, relics, spells, builds, locations, bosses, mechanics, reviews, PC requirements, and source-backed updates.",
   disclaimer:
     "Unofficial fan-made guide. Not affiliated with THQ Nordic, Paraglacial, or Fatekeeper.",
   author: "Fatekeeper Guide Editorial"
@@ -15,9 +15,12 @@ export const fatekeeperFacts = {
   developer: "Paraglacial",
   publisher: "THQ Nordic",
   platform: "Windows PC on Steam",
+  releaseState: "Released in Steam Early Access",
   releaseUtc: "2026-06-02T17:00:00.000Z",
-  releaseLabel: "June 2, 2026 at 17:00 UTC",
-  beijingLabel: "June 3, 2026 at 01:00 Beijing time",
+  releaseLabel: "Released June 2, 2026 on Steam Early Access",
+  beijingLabel: "Released June 3, 2026 at 01:00 Beijing time",
+  steamReviewSummary: "Very Positive, 1,138 reviews, 80% positive",
+  steamPriceSummary: "$7.99 introductory offer from $9.99",
   earlyAccessLength: "about 2 hours of content at Early Access launch",
   fullGameLength: "about 15 hours planned for the 1.0 release",
   earlyAccessWindow: "about 18 months planned in Early Access",
@@ -26,7 +29,7 @@ export const fatekeeperFacts = {
   recommendedRam: "32 GB RAM",
   minimumGpu: "GeForce RTX 3070 or Radeon RX 6800 XT with 8 GB VRAM",
   directX: "DirectX 12",
-  storage: "20 GB available space"
+  storage: "45 GB available space"
 };
 
 export const sourceLinks = {
@@ -97,6 +100,18 @@ export const sourceLinks = {
   googleTrends: {
     label: "Google Trends",
     url: "https://trends.google.com/trends/explore?q=Fatekeeper"
+  },
+  xmodhubEarlyGuide: {
+    label: "XMODhub early game guide",
+    url: "https://www.xmodhub.com/info/blog/best-starting-build-early-game-tips-fatekeeper/"
+  },
+  fatekeeperWiki: {
+    label: "Fatekeeper Wiki",
+    url: "https://fatekeeper.wiki/"
+  },
+  gameGuidesWiki: {
+    label: "GameGuides Wiki",
+    url: "https://gameguides.wiki/games/fatekeeper"
   }
 };
 
@@ -117,6 +132,7 @@ export const media = {
 };
 
 export const navLinks = [
+  { label: "Wiki", href: "/wiki" },
   { label: "Release Date", href: "/fatekeeper/release-date" },
   { label: "Early Access", href: "/fatekeeper/early-access" },
   { label: "Beginner Guide", href: "/fatekeeper/beginner-guide" },

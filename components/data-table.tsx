@@ -1,6 +1,10 @@
-import type { GuideTable } from "@/lib/guides";
+export type TableData = {
+  caption: string;
+  headers: string[];
+  rows: string[][];
+};
 
-export function DataTable({ table }: { table: GuideTable }) {
+export function DataTable({ table }: { table: TableData }) {
   return (
     <div className="mt-5 table-wrap">
       <table className="data-table">

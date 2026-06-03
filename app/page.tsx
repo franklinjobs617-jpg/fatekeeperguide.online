@@ -9,8 +9,14 @@ import { StatusBadge } from "@/components/status-badge";
 import { getFeaturedGuides, getGuides, getLatestGuides, getSearchIndex, homeClusters } from "@/lib/guides";
 import { playerDemandSignals, researchSourceNotes } from "@/lib/research";
 import { fatekeeperFacts, media, siteConfig, sourceLinks } from "@/lib/site";
+import { getWikiCategoryCount, wikiCategories, wikiEntities } from "@/lib/wiki-data";
 
 const routeCards = [
+  {
+    label: "Wiki database",
+    href: "/wiki",
+    body: "Evidence-labeled weapons, relics, spells, locations, builds, bosses, mechanics, and performance notes."
+  },
   {
     label: "Release and PC check",
     href: "/fatekeeper/release-date",
@@ -43,8 +49,8 @@ const routeCards = [
   },
   {
     label: "Gear and magic data",
-    href: "/fatekeeper/weapons",
-    body: "Weapons, spells, relic fields, source status, and future verified database entries."
+    href: "/wiki/weapons",
+    body: "Weapon, spell, and relic entries with source confidence and related build links."
   },
   {
     label: "Bosses and world help",
@@ -57,6 +63,7 @@ export default function HomePage() {
   const featuredGuides = getFeaturedGuides();
   const latestGuides = getLatestGuides();
   const searchIndex = getSearchIndex();
+  const featuredWikiEntities = wikiEntities.slice(0, 6);
 
   return (
     <main>
@@ -109,18 +116,18 @@ export default function HomePage() {
 
           <div className="container home-hero-content">
             <div className="home-hero-copy">
-              <p className="kicker">Fatekeeper Early Access guide terminal</p>
-              <h1 className="hero-title mt-5 max-w-5xl">Fatekeeper Guide Library</h1>
+              <p className="kicker">Fatekeeper wiki and guide terminal</p>
+              <h1 className="hero-title mt-5 max-w-5xl">Fatekeeper Wiki and Guide</h1>
               <p className="mt-6 max-w-2xl text-[20px] leading-8">
-                Fast, source-backed English guides for release timing, Early Access decisions,
-                beginner systems, builds, weapons, spells, relics, enemies, bosses, and world routes.
+                Evidence-labeled English wiki and guides for weapons, relics, spells, builds,
+                locations, bosses, mechanics, reviews, PC requirements, and Early Access decisions.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/fatekeeper/beginner-guide" className="btn-primary">
-                  Open beginner guide
+                <Link href="/wiki" className="btn-primary">
+                  Open wiki
                 </Link>
-                <Link href="/fatekeeper/early-access" className="btn-ghost">
-                  Read Early Access notes
+                <Link href="/wiki/weapons" className="btn-ghost">
+                  Browse weapons
                 </Link>
                 <a href={sourceLinks.youtubeGameplay.url} target="_blank" rel="noreferrer" className="btn-ghost">
                   Watch official gameplay
@@ -129,10 +136,10 @@ export default function HomePage() {
             </div>
 
             <div className="mt-10 hero-fact-grid">
-              <HeroFact label="Release" value={fatekeeperFacts.releaseLabel} />
-              <HeroFact label="Platform" value={fatekeeperFacts.platform} />
-              <HeroFact label="Early Access" value={fatekeeperFacts.earlyAccessLength} />
-              <HeroFact label="Verification" value="Official facts first, tested notes after launch" />
+              <HeroFact label="Release" value={fatekeeperFacts.releaseState} />
+              <HeroFact label="Steam reviews" value={fatekeeperFacts.steamReviewSummary} />
+              <HeroFact label="Intro price" value={fatekeeperFacts.steamPriceSummary} />
+              <HeroFact label="Verification" value="Official facts, guide reports, and conflicts stay labeled" />
             </div>
           </div>
         </div>
@@ -140,6 +147,54 @@ export default function HomePage() {
 
       <section className="container py-6">
         <GuideSearch items={searchIndex} />
+      </section>
+
+      <section className="container py-8">
+        <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="kicker">Wiki database</p>
+            <h2 className="section-title mt-3">Look up entities, not just articles</h2>
+          </div>
+          <Link href="/wiki" className="btn-ghost">
+            Full wiki
+          </Link>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {wikiCategories.slice(0, 8).map((category) => (
+            <Link key={category.slug} href={category.href} className="surface surface-link p-5">
+              <div className="flex items-center justify-between gap-3">
+                <span className="mono-label">{category.label}</span>
+                <span className="status-pill">{getWikiCategoryCount(category.slug)} entries</span>
+              </div>
+              <h3 className="mt-5 text-[23px] font-medium leading-tight text-white">{category.title}</h3>
+              <p className="mt-3 text-[14px] leading-6 text-silver-text">{category.description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="container py-8">
+        <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="kicker">Evidence-labeled entries</p>
+            <h2 className="section-title mt-3">First merged wiki records</h2>
+          </div>
+          <Link href="/wiki/mechanics/respec-rules" className="btn-ghost">
+            View conflict example
+          </Link>
+        </div>
+        <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {featuredWikiEntities.map((entity) => (
+            <Link key={entity.id} href={`/wiki/${entity.category}/${entity.slug}`} className="surface surface-link p-5">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span className="mono-label">{entity.category}</span>
+                <span className="status-pill status-analysis">{entity.evidenceStatus}</span>
+              </div>
+              <h3 className="mt-5 text-[23px] font-medium leading-tight text-white">{entity.name}</h3>
+              <p className="mt-3 text-[14px] leading-6 text-silver-text">{entity.quickAnswer}</p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="container py-8">

@@ -12,7 +12,52 @@ function toId(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
+const guideWikiLinks: Record<string, { href: string; label: string; body: string }> = {
+  "fatekeeper/weapons": {
+    href: "/wiki/weapons",
+    label: "Open weapons wiki",
+    body: "Weapon entries now live in the evidence-labeled wiki with source reports, related builds, and location fields."
+  },
+  "fatekeeper/spells": {
+    href: "/wiki/spells",
+    label: "Open spells wiki",
+    body: "Spell entries now track roles, reported effects, related builds, and source confidence."
+  },
+  "fatekeeper/relics": {
+    href: "/wiki/relics",
+    label: "Open relics wiki",
+    body: "Relic entries now separate official facts, community reports, and unverified effects."
+  },
+  "fatekeeper/enemies": {
+    href: "/wiki/bosses",
+    label: "Open bosses wiki",
+    body: "Enemy and boss data is being moved into source-labeled entity pages instead of flat article notes."
+  },
+  "fatekeeper/bosses": {
+    href: "/wiki/bosses",
+    label: "Open bosses wiki",
+    body: "Boss entries track phase notes, drops, rewards, weaknesses, and whether the data is verified."
+  },
+  "fatekeeper/world": {
+    href: "/wiki/locations",
+    label: "Open locations wiki",
+    body: "Location pages connect hidden loot, bosses, mechanics, and route notes with evidence labels."
+  },
+  "fatekeeper/builds": {
+    href: "/wiki/builds",
+    label: "Open builds wiki",
+    body: "Build entries now track key gear reports, confidence, risks, and related items."
+  },
+  "fatekeeper/reviews": {
+    href: "/wiki/performance",
+    label: "Open performance wiki",
+    body: "Review and performance facts now link to Steam status, requirements, and launch evidence."
+  }
+};
+
 export function GuideLayout({ page }: { page: GuidePage }) {
+  const wikiLink = guideWikiLinks[page.slug];
+
   return (
     <main>
       <section className="container">
@@ -61,6 +106,21 @@ export function GuideLayout({ page }: { page: GuidePage }) {
           </div>
         </div>
       </section>
+
+      {wikiLink && (
+        <section className="container pb-8">
+          <div className="section-index surface grid gap-4 p-5 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <p className="kicker">Wiki upgrade</p>
+              <h2 className="mt-3 text-[26px] font-medium leading-tight text-white">{wikiLink.label}</h2>
+              <p className="mt-2 text-[15px] leading-6 text-silver-text">{wikiLink.body}</p>
+            </div>
+            <Link href={wikiLink.href} className="btn-primary">
+              {wikiLink.label}
+            </Link>
+          </div>
+        </section>
+      )}
 
       <section className="container py-3">
         <div className="section-index">

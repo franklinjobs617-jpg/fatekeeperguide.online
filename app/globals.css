@@ -503,6 +503,16 @@ input:focus-visible {
   background: var(--color-cadmium-green);
 }
 
+.guide-body .route-step {
+  position: static;
+  padding-left: 16px;
+  list-style: none;
+}
+
+.guide-body .route-step::before {
+  display: none;
+}
+
 .guide-body .note-panel {
   color: var(--color-true-black);
   line-height: 1.5;

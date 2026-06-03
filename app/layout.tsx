@@ -93,7 +93,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <div className="flex flex-col gap-4 border-t border-graphite pt-7 md:flex-row md:items-center md:justify-between">
               <p className="text-[14px] font-medium text-silver-text">{siteConfig.disclaimer}</p>
               <p className="text-[14px] font-medium text-silver-text">
-                Updated for pre-launch research and Early Access verification.
+                Updated for post-launch wiki evidence, Early Access facts, and source-labeled reports.
               </p>
             </div>
           </footer>

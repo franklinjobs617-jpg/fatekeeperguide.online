@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const items = [
-  { label: "Weapons", href: "/fatekeeper/weapons" },
-  { label: "Spells", href: "/fatekeeper/spells" },
-  { label: "Relics", href: "/fatekeeper/relics" },
-  { label: "Enemies", href: "/fatekeeper/enemies" },
-  { label: "World", href: "/fatekeeper/world" }
+  { label: "Weapons", href: "/wiki/weapons" },
+  { label: "Spells", href: "/wiki/spells" },
+  { label: "Relics", href: "/wiki/relics" },
+  { label: "Bosses", href: "/wiki/bosses" },
+  { label: "Locations", href: "/wiki/locations" }
 ];
 
 export function DatabaseFilter() {

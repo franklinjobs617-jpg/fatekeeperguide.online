@@ -83,10 +83,10 @@ const verificationSection = (
 
 const launchSections = {
   sourceBackedEa: {
-    heading: "What is confirmed before launch",
+    heading: "What is confirmed now",
     body: [
       `Fatekeeper is developed by ${fatekeeperFacts.developer} and published by ${fatekeeperFacts.publisher}. The official positioning is a first-person fantasy action RPG with melee, magic, exploration, progression, weapons, armor, relics, and handcrafted world spaces.`,
-      `The Steam page is the source of record for store timing, platform, Early Access framing, and system requirements. It lists ${fatekeeperFacts.platform} and describes an Early Access plan that starts with ${fatekeeperFacts.earlyAccessLength}, grows toward ${fatekeeperFacts.fullGameLength}, and may remain in Early Access for ${fatekeeperFacts.earlyAccessWindow}.`
+      `The Steam page is the source of record for release state, price, reviews, platform, Early Access framing, and system requirements. It lists ${fatekeeperFacts.platform}, ${fatekeeperFacts.storage}, ${fatekeeperFacts.steamPriceSummary}, and describes an Early Access plan that starts with ${fatekeeperFacts.earlyAccessLength}, grows toward ${fatekeeperFacts.fullGameLength}, and may remain in Early Access for ${fatekeeperFacts.earlyAccessWindow}.`
     ],
     bullets: [
       "Use Steam for purchase state, requirement changes, and regional store timing.",
@@ -118,7 +118,7 @@ function demandFaqsFor(slug: string): GuideFaq[] {
       return [
         {
           question: "When does Fatekeeper launch in Early Access?",
-          answer: `Fatekeeper is scheduled for Early Access on ${fatekeeperFacts.releaseLabel}, which is ${fatekeeperFacts.beijingLabel}. Steam remains the final source if the storefront timing changes.`
+          answer: `Fatekeeper is live in Steam Early Access. Current site facts track it as ${fatekeeperFacts.releaseLabel}, with the China local reference as ${fatekeeperFacts.beijingLabel}. Steam remains the final source if the storefront state changes.`
         },
         {
           question: "Does Fatekeeper have a preload?",
@@ -184,7 +184,7 @@ function demandFaqsFor(slug: string): GuideFaq[] {
         {
           question: "Is Fatekeeper combat like Dark Messiah?",
           answer:
-            "Fatekeeper has visible first-person melee and magic appeal for Dark Messiah fans, but exact physics, kick behavior, enemy reactions, and environmental combat depth remain unverified before launch."
+            "Fatekeeper has visible first-person melee and magic appeal for Dark Messiah fans, but exact physics, kick behavior, enemy reactions, and environmental combat depth remain unverified before direct verification."
         },
         {
           question: "Is Fatekeeper combat more like Skyrim or Dark Messiah?",
@@ -256,8 +256,8 @@ function demandSectionFor(input: GuidePage): GuideSection {
     return {
       heading: "Player questions this page answers",
       body: [
-        "Pre-launch Fatekeeper searches are mostly practical: release date, Early Access size, price, discount, preorder, platform, co-op, demo, preload, PC requirements, Steam Deck status, controller support, and whether the first build is worth buying. Use this section as a buying checklist before opening Steam.",
-        "Google Trends can be useful for watching whether branded demand rises near trailers, previews, and the Early Access date, but low-volume pre-launch game terms should not be treated as exact search-volume data. The safer signal is the repeated question pattern across Steam, YouTube, Reddit, and media coverage."
+        "Launch-window Fatekeeper searches are mostly practical: release state, Early Access size, price, discount, platform, co-op, demo, download state, PC requirements, Steam Deck status, controller support, reviews, and whether the first build is worth buying. Use this section as a buying checklist before opening Steam.",
+        "Google Trends is useful for watching whether branded demand rises around trailers, reviews, and Early Access updates, but low-volume game terms should not be treated as exact search-volume data. The safer signal is the repeated question pattern across Steam, YouTube, Reddit, media coverage, and wiki lookups."
       ],
       table: {
         caption: "Buy-intent question map",
@@ -320,8 +320,8 @@ function demandSectionFor(input: GuidePage): GuideSection {
     return {
       heading: "How to use database pages before entries are complete",
       body: [
-        "Database pages are useful before launch when they show exactly what will be tracked and what remains unknown. For Fatekeeper, players will look for weapon scaling, spell cooldowns, relic effects, enemy weaknesses, boss rewards, and world locations as soon as Early Access is live.",
-        "Use these pages as a verification ledger. Official facts, trailer observations, and hands-on discoveries are separated so you can decide whether a data point is safe to use in a build or route."
+        "Database pages are useful when they show exactly what is official, what is reported by guides, and what remains unknown. For Fatekeeper, players look for weapon scaling, spell cooldowns, relic effects, enemy weaknesses, boss rewards, and world locations.",
+        "Use these pages as a verification ledger. Official facts, guide reports, community reports, conflicts, and hands-on discoveries are separated so you can decide whether a data point is safe to use in a build or route."
       ],
       table: {
         caption: "Database field priority",
@@ -340,7 +340,7 @@ function demandSectionFor(input: GuidePage): GuideSection {
     heading: "How to use this when you are stuck",
     body: [
       "Solve-intent pages need direct answers first. If you are blocked by an enemy, boss, locked door, puzzle, or route, start with the safest action, then check the evidence status before changing your whole build.",
-      "Before launch, this page gives the evidence standard and the fields that matter. After hands-on testing, it can become a direct route with screenshots, encounter notes, rewards, and patch-specific warnings."
+      "This page gives the evidence standard and the fields that matter. With hands-on testing, it can become a direct route with screenshots, encounter notes, rewards, and patch-specific warnings."
     ],
     table: {
       caption: "Stuck-player answer format",
@@ -367,12 +367,12 @@ export const guidePages: GuidePage[] = [
     status: "Official Info",
     lastUpdated,
     heroImage: "/images/fatekeeper-announcement.jpg",
-    quickAnswer: `Fatekeeper is scheduled for Early Access on ${fatekeeperFacts.releaseLabel}, which is ${fatekeeperFacts.beijingLabel}. The listed launch platform is ${fatekeeperFacts.platform}. Check the Steam page close to unlock because store timing, preload notes, and final requirement wording can change near release.`,
+    quickAnswer: `Fatekeeper is live in Steam Early Access: ${fatekeeperFacts.releaseLabel}. The listed platform is ${fatekeeperFacts.platform}. Current Steam-facing facts include ${fatekeeperFacts.steamReviewSummary}, ${fatekeeperFacts.steamPriceSummary}, and ${fatekeeperFacts.storage}.`,
     takeaways: [
-      `Current listed release timing: ${fatekeeperFacts.releaseLabel}.`,
+      `Current release state: ${fatekeeperFacts.releaseState}.`,
       `China local reference: ${fatekeeperFacts.beijingLabel}.`,
-      "Steam is the source of record for final unlock and purchase status.",
-      "Release timing will be updated if Steam or THQ Nordic changes the schedule."
+      "Steam is the source of record for purchase status, reviews, price, and requirements.",
+      "Release facts will be updated if Steam or THQ Nordic changes the store state."
     ],
     sections: [
       launchSections.sourceBackedEa,
@@ -394,10 +394,10 @@ export const guidePages: GuidePage[] = [
         }
       },
       {
-        heading: "Pre-launch checklist",
+        heading: "Launch checklist",
         body: [
-          "Before the unlock window, players should verify their Steam region, wishlist or follow the app, compare their PC against the listed requirements, and decide whether two hours of initial Early Access content is enough for them.",
-          "After checking the time, the next useful steps are system requirements, Early Access value, and beginner preparation."
+          "Before buying or installing, players should verify their Steam region, current price, review state, storage space, and whether about two hours of initial Early Access content is enough for them.",
+          "After checking the store page, the next useful steps are system requirements, Early Access value, wiki data, and beginner preparation."
         ],
         bullets: [
           "Check whether Steam shows the same release date in your region.",
@@ -520,7 +520,7 @@ export const guidePages: GuidePage[] = [
         heading: "What Reddit and video demand shows",
         body: [
           "The useful community signal is not that every comment is correct. It is the pattern of questions. Players compare the game to older first-person fantasy action RPGs, ask how deep the combat is, and want to know whether the systems have enough weight to justify Early Access.",
-          "That demand makes combat, builds, weapons, spells, and PC requirements more useful than generic lore summaries before launch."
+          "That demand makes combat, builds, weapons, spells, and PC requirements more useful than generic lore summaries before direct verification."
         ],
         bullets: [
           "Answer buy/wait questions before broad lore.",
@@ -588,7 +588,7 @@ export const guidePages: GuidePage[] = [
         heading: "How to read the requirements",
         body: [
           "Minimum requirements do not mean smooth high settings. They mean the developer or publisher lists that class of hardware as the baseline for running the game. Until benchmarks exist, avoid fake certainty about resolution and frame rate.",
-          "The best pre-launch advice is conservative. If your GPU is below RTX 3070 or RX 6800 XT class, wait for launch-week testing before buying."
+          "The best launch-window advice is conservative. If your GPU is below RTX 3070 or RX 6800 XT class, wait for launch-week testing before buying."
         ],
         bullets: [
           "Above listed GPU and 32 GB RAM: likely best positioned for launch testing.",
@@ -631,7 +631,7 @@ export const guidePages: GuidePage[] = [
       {
         heading: "Current Steam Deck answer",
         body: [
-          "The correct pre-launch answer is caution. A yes or no answer without a Deck rating or hands-on testing would be inventing certainty. The test checklist below shows what still needs proof.",
+          "The correct launch-window answer is caution. A yes or no answer without a Deck rating or hands-on testing would be inventing certainty. The test checklist below shows what still needs proof.",
           "This is useful for players because Steam Deck searches are buy-intent searches. They need to know whether to wait, not read vague optimism."
         ],
         table: {
@@ -732,7 +732,7 @@ export const guidePages: GuidePage[] = [
       {
         heading: "Watch the 15-Minute Gameplay Demo First",
         body: [
-          "WildGamerSK's 15-minute gameplay demo is the best pre-purchase visual reference. Watch it to see real combat pacing, weapon variety, enemy behavior, UI layout, and environment design — then use the guide below to plan your first session.",
+          "WildGamerSK's 15-minute gameplay demo is the best pre-purchase visual reference. Watch it to see real combat pacing, weapon variety, enemy behavior, UI layout, and environment design -then use the guide below to plan your first session.",
           "Key moments: 0:30 weapon selection UI, 1:15 first enemy encounter, 3:42 inventory and gear, 7:18 first boss arena entrance."
         ],
         videoId: "-x_QMmlccy0",
@@ -798,7 +798,7 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: media.combat,
     quickAnswer:
-      "The safest Fatekeeper tips before launch are system habits: read attacks, test range, save upgrade materials until a tool proves reliable, use spells for control, and treat every relic as a build clue rather than vendor trash.",
+      "The safest Fatekeeper tips before direct verification are system habits: read attacks, test range, save upgrade materials until a tool proves reliable, use spells for control, and treat every relic as a build clue rather than vendor trash.",
     takeaways: [
       "Good tips improve decisions without inventing content.",
       "Combat tips focus on timing, spacing, and resource use.",
@@ -807,7 +807,7 @@ export const guidePages: GuidePage[] = [
     ],
     sections: [
       {
-        heading: "Combat tips that are safe before launch",
+        heading: "Combat tips that are safe before direct verification",
         body: [
           "Useful tips do not need fake stats. The confirmed direction already supports practical advice: enemy patterns matter, weapons and spells matter, and gear experimentation is part of the game.",
           "Train better habits early: attack after a punish window, learn how far each weapon reaches, avoid panic casting, and note which enemy actions seem interruptible."
@@ -867,7 +867,7 @@ export const guidePages: GuidePage[] = [
     ],
     sections: [
       {
-        heading: "Pre-launch first-hours plan",
+        heading: "Launch-window first-hours plan",
         body: [
           "A true first-hours route needs direct play. Until then, use this as a first-session checklist: what to watch, what to test, and which decisions to postpone until the systems are clear.",
           "Start with controls, then combat safety, then build identity, then exploration. That order mirrors how players actually learn a new action RPG."
@@ -956,7 +956,7 @@ export const guidePages: GuidePage[] = [
       {
         heading: "Melee and magic roles",
         body: [
-          "The best pre-launch combat advice is to think in roles. Weapons create timing and commitment. Spells can add reach, burst, control, buffs, or area coverage. Relics and armor may change which tradeoffs are acceptable.",
+          "The best launch-window combat advice is to think in roles. Weapons create timing and commitment. Spells can add reach, burst, control, buffs, or area coverage. Relics and armor may change which tradeoffs are acceptable.",
           "After launch, this becomes the parent reference for weapon, spell, relic, enemy, and build pages."
         ],
         bullets: [
@@ -1109,16 +1109,16 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: media.combat,
     quickAnswer:
-      "There is no verified best Fatekeeper build before Early Access testing. Rank confidence, not power: beginner-safe and spellblade plans are the most practical starting points, while dagger and heavy builds need hands-on data.",
+      "There is no verified best Fatekeeper build before patch-specific testing. Rank confidence, not power: beginner-safe and spellblade plans are the most practical starting points, while dagger and heavy builds need hands-on data.",
     takeaways: [
-      "No verified tier list exists before launch testing.",
+      "No verified tier list exists before direct verification testing.",
       "Beginner and spellblade builds are safest to prepare.",
       "Heavy and dagger builds may become strong but need frame and scaling data.",
       "Post-launch ranking must include patch version."
     ],
     sections: [
       {
-        heading: "Pre-launch build ranking",
+        heading: "Launch-window build ranking",
         body: [
           "Players still search for best builds before the meta exists. Use a ranked watchlist instead of a fake tier list, then replace it with tested results after launch.",
           "The ranking below is based on safety and likely flexibility, not verified damage."
@@ -1202,7 +1202,7 @@ export const guidePages: GuidePage[] = [
         heading: "Strengths and weaknesses",
         body: [
           "The beginner build has a clear weakness: it may not be the fastest killer. That is acceptable. Its strength is consistency, lower punishment, and broad compatibility with future discoveries.",
-          "After launch, exact starter tools and a tested upgrade order can replace the pre-launch plan."
+          "After launch, exact starter tools and a tested upgrade order can replace the launch-window plan."
         ],
         bullets: [
           "Strength: safer learning curve.",
@@ -1234,7 +1234,7 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: media.combat,
     quickAnswer:
-      "The spellblade build is the most promising flexible archetype before launch because it can combine melee timing with spell utility. It still needs testing for resource cost, cast safety, scaling, and relic support.",
+      "The spellblade build is the most promising flexible archetype before direct verification because it can combine melee timing with spell utility. It still needs testing for resource cost, cast safety, scaling, and relic support.",
     takeaways: [
       "A spellblade solves problems with both range and melee.",
       "Resource economy is the biggest unknown.",
@@ -1289,7 +1289,7 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: media.gear,
     quickAnswer:
-      "The heavy build may become strong if high-commitment attacks create reliable stagger or burst. It is risky before launch because recovery time, stamina pressure, and enemy interruption rules are unknown.",
+      "The heavy build may become strong if high-commitment attacks create reliable stagger or burst. It is risky before direct verification because recovery time, stamina pressure, and enemy interruption rules are unknown.",
     takeaways: [
       "Heavy builds need timing data more than hype.",
       "Stagger and recovery are the core tests.",
@@ -1301,7 +1301,7 @@ export const guidePages: GuidePage[] = [
         heading: "Playstyle",
         body: [
           "A heavy build usually wins by trading speed for impact. In Fatekeeper, that trade only works if enemies can be staggered, interrupted, spaced, or punished after a clear window.",
-          "Before launch, ask the key question: can this build safely commit to attacks?"
+          "Before direct verification, ask the key question: can this build safely commit to attacks?"
         ],
         table: {
           caption: "Heavy build test plan",
@@ -1392,9 +1392,9 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: media.gear,
     quickAnswer:
-      "The weapons database starts with useful pre-launch structure and expands with weapon type, damage, scaling, effect, passive perk, upgrade materials, location, and builds using it once the Early Access build can be tested.",
+      "The weapons database starts with useful launch-window structure and expands with weapon type, damage, scaling, effect, passive perk, upgrade materials, location, and builds using it once the Early Access build can be tested.",
     takeaways: [
-      "Do not invent weapon names or stats before launch.",
+      "Do not invent weapon names or stats before direct verification.",
       "The database is organized for real entries as soon as items can be tested.",
       "Weapon role is useful before exact numbers.",
       "Every entry needs patch version and source status."
@@ -1518,7 +1518,7 @@ export const guidePages: GuidePage[] = [
         heading: "Relic database design",
         body: [
           "Relic pages win when they connect passive effects to decisions. A player does not only need to know what a relic does. They need to know which build wants it, where to find it, whether it stacks, and whether it changes combat behavior.",
-          "Before launch, this section shows which relic fields matter and what needs testing."
+          "Before direct verification, this section shows which relic fields matter and what needs testing."
         ],
         table: {
           caption: "Relic entry fields",
@@ -1562,7 +1562,7 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: media.combat,
     quickAnswer:
-      "Enemy pages do not invent weaknesses or drops before launch. Use the format to track overview, attack patterns, weakness tests, drops, strategy, rewards, and patch version.",
+      "Enemy pages do not invent weaknesses or drops before direct verification. Use the format to track overview, attack patterns, weakness tests, drops, strategy, rewards, and patch version.",
     takeaways: [
       "Enemy weaknesses need repeatable tests.",
       "Attack patterns can be documented with screenshots or clips.",
@@ -1574,7 +1574,7 @@ export const guidePages: GuidePage[] = [
         heading: "How enemy entries help during play",
         body: [
           "Enemy pages are useful when you are stuck and need a practical answer. Start with what to do, then check the evidence behind the advice.",
-          "Before launch, the enemies hub tracks evidence standards and visible official enemy context without assigning fake names or drops."
+          "Before direct verification, the enemies hub tracks evidence standards and visible official enemy context without assigning fake names or drops."
         ],
         table: {
           caption: "Enemy entry fields",
@@ -1674,13 +1674,13 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: "/images/fatekeeper-gameplay-reveal.jpg",
     quickAnswer:
-      "New players should start as Exiled Mercenary (highest HP, safest) or Fallen Knight (tower shield tank). Experienced action RPG players can try Shadow-Dancer (bleed/agility) or Wandering Scholar (magic/status effects). Respec is locked behind an Act 2 boss — your class choice matters early.",
+      "New players should start as Exiled Mercenary (highest HP, safest) or Fallen Knight (tower shield tank). Experienced action RPG players can try Shadow-Dancer (bleed/agility) or Wandering Scholar (magic/status effects). Respec is locked behind an Act 2 boss -your class choice matters early.",
     takeaways: [
       "Exiled Mercenary is the most forgiving starting class for new players.",
       "Fallen Knight excels at shield-based tank builds.",
       "Shadow-Dancer rewards aggressive melee with bleed weapons.",
       "Wandering Scholar is the magic/Arcane specialist.",
-      "Respec is 20-25 hours away — choose carefully."
+      "Respec is 20-25 hours away -choose carefully."
     ],
     sections: [
       {
@@ -1711,7 +1711,7 @@ export const guidePages: GuidePage[] = [
           "Beginners: Exiled Mercenary > Fallen Knight > Shadow-Dancer > Wandering Scholar",
           "Experienced players: Shadow-Dancer or Wandering Scholar based on preferred playstyle",
           "All classes: rush Vigor to 25 first, then your main damage stat to 30",
-          "Do NOT spread stats across STR/DEX/ARC — specialize in one offense stat"
+          "Do NOT spread stats across STR/DEX/ARC -specialize in one offense stat"
         ]
       },
       verificationSection("starting classes")
@@ -1744,7 +1744,7 @@ export const guidePages: GuidePage[] = [
       {
         heading: "Play Time Breakdown",
         body: [
-          "Fatekeeper's play time varies dramatically depending on when you buy it. The Early Access launch build is explicitly short — Steam describes it as about 2 hours of content. This is a first slice designed for testing and feedback, not a finished campaign.",
+          "Fatekeeper's play time varies dramatically depending on when you buy it. The Early Access launch build is explicitly short -Steam describes it as about 2 hours of content. This is a first slice designed for testing and feedback, not a finished campaign.",
           "The full 1.0 release targets about 15 hours of content, with the Early Access period expected to last approximately 18 months. During that time, content updates will progressively expand the game."
         ],
         table: {
@@ -1760,8 +1760,8 @@ export const guidePages: GuidePage[] = [
       {
         heading: "Should You Buy Now or Wait?",
         body: [
-          "The two-hour Early Access scope is the single most important buying fact. If you want to test first-person fantasy combat early, support development, and get the discounted Early Access price — buy now.",
-          "If you want a complete story, final balance, stable performance, and enough content to justify a full-price RPG — wait for 1.0 or at least several major content updates."
+          "The two-hour Early Access scope is the single most important buying fact. If you want to test first-person fantasy combat early, support development, and get the discounted Early Access price -buy now.",
+          "If you want a complete story, final balance, stable performance, and enough content to justify a full-price RPG -wait for 1.0 or at least several major content updates."
         ],
         bullets: [
           "Buy now: you want to test combat, accept 2-hour scope, want the discount.",
@@ -1788,7 +1788,7 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: "/images/fatekeeper-dark-messiah.jpg",
     quickAnswer:
-      "Fatekeeper is being searched and discussed as a Dark Messiah-like first-person fantasy RPG, but the comparison should stay limited before launch. Official material supports first-person sword and sorcery, reactive combat, progression, spells, relics, and handcrafted spaces; exact physics depth, kick-style interactions, enemy behavior, and build freedom need hands-on testing.",
+      "Fatekeeper is being searched and discussed as a Dark Messiah-like first-person fantasy RPG, but the comparison should stay limited before direct verification. Official material supports first-person sword and sorcery, reactive combat, progression, spells, relics, and handcrafted spaces; exact physics depth, kick-style interactions, enemy behavior, and build freedom need hands-on testing.",
     takeaways: [
       "The Dark Messiah comparison is a real player demand signal from Reddit, Steam Community, YouTube, and media titles.",
       "Official material supports first-person fantasy melee and magic, not a confirmed one-to-one Dark Messiah successor.",
@@ -1818,7 +1818,7 @@ export const guidePages: GuidePage[] = [
         heading: "What the comparison should not claim yet",
         body: [
           "The page must not claim Fatekeeper has the same kick system, physics sandbox, enemy reactions, environmental kill depth, or level design structure as Dark Messiah until players can test the Early Access build.",
-          "The safe pre-launch answer is narrower: Fatekeeper is targeting the same audience signal, but the real proof is combat feel, enemy interaction, level layout, spell utility, and whether physical problem-solving works outside trailer moments."
+          "The safe launch-window answer is narrower: Fatekeeper is targeting the same audience signal, but the real proof is combat feel, enemy interaction, level layout, spell utility, and whether physical problem-solving works outside trailer moments."
         ],
         bullets: [
           "Do not call it a confirmed spiritual successor as a fact.",
@@ -1833,7 +1833,7 @@ export const guidePages: GuidePage[] = [
       {
         question: "Is Fatekeeper like Dark Messiah?",
         answer:
-          "Fatekeeper appears to target players who like Dark Messiah-style first-person fantasy combat, but it is not proven to match Dark Messiah's exact physics, kick, or environmental combat depth before Early Access testing."
+          "Fatekeeper appears to target players who like Dark Messiah-style first-person fantasy combat, but it is not proven to match Dark Messiah's exact physics, kick, or environmental combat depth before patch-specific testing."
       },
       {
         question: "Is Fatekeeper a Skyrim-like RPG?",
@@ -2127,7 +2127,7 @@ export const guidePages: GuidePage[] = [
     lastUpdated,
     heroImage: "/images/fatekeeper-announcement.jpg",
     quickAnswer:
-      "Use Steam as the final source for Fatekeeper demo, preload, download size, and unlock state. Before launch, do not assume a demo or preload exists unless Steam shows it directly on the app page.",
+      "Use Steam as the final source for Fatekeeper demo, preload, download size, and unlock state. Before direct verification, do not assume a demo or preload exists unless Steam shows it directly on the app page.",
     takeaways: [
       "Demo and preload searches spike near launch because players want to prepare downloads.",
       "Steam store state can change close to unlock.",
@@ -2155,7 +2155,7 @@ export const guidePages: GuidePage[] = [
         }
       },
       {
-        heading: "Pre-launch checklist",
+        heading: "Launch-window checklist",
         body: [
           "Players planning to play at unlock should check storage, GPU requirements, Steam region, and whether the store button changes as the release window approaches.",
           "If Steam does not show a demo or preload, the page should not imply a workaround. The useful answer is certainty, not guesswork."
@@ -2199,19 +2199,19 @@ export const guidePages: GuidePage[] = [
     title: "Fatekeeper Reviews: Early Access Impressions, Performance and Buy-Wait Status",
     h1: "Fatekeeper Reviews",
     description:
-      "Track Fatekeeper review status, Early Access impressions, performance reports, Steam user reviews, and what must be verified after launch.",
+      "Track Fatekeeper review status, Early Access impressions, performance reports, Steam user reviews, and which claims still need patch-specific evidence.",
     category: "Launch Readiness",
     intent: "buy",
-    status: "Needs Post-Launch Testing",
+    status: "Official Info",
     lastUpdated,
     heroImage: media.combat,
     quickAnswer:
-      "Full Fatekeeper reviews and reliable Steam user-review patterns need the playable Early Access build. Before launch, use this page as a review checklist: combat feel, performance, content length, bugs, Steam Deck behavior, controller input, and whether two hours of launch content feels worth the price.",
+      `Steam currently shows ${fatekeeperFacts.steamReviewSummary}. Use that as the review snapshot, then read the details by evidence type: combat feel, performance, content length, bugs, Steam Deck behavior, controller input, and whether the short Early Access scope feels worth the current price.`,
     takeaways: [
-      "Review searches will spike at launch, but pre-launch review claims are not reliable without hands-on play.",
-      "The first review update should separate critic previews, Steam user reviews, and tested guide notes.",
+      "Steam user-review state is now a live buying signal, but it still needs context.",
+      "Review coverage should separate Steam user reviews, critic coverage, guide reports, and tested notes.",
       "Performance and content length matter more than broad hype for buying decisions.",
-      "No score, verdict, or best-build claim should appear before evidence exists."
+      "No best-build or performance claim should appear without patch, hardware, or source evidence."
     ],
     sections: [
       launchSections.sourceBackedEa,
@@ -2219,17 +2219,18 @@ export const guidePages: GuidePage[] = [
         heading: "What reviews need to answer first",
         body: [
           "Fatekeeper review content should be practical, not decorative. The first questions are whether combat feels responsive, whether the listed PC requirements are accurate, whether the Early Access slice feels substantial, and whether bugs block progress.",
-          "The review page should not pretend to have a final verdict before the build is playable. It should publish a clear testing framework and then replace placeholders with evidence."
+          "The review page should not flatten everything into one score. It should separate storefront review state, media impressions, guide reports, community issues, and our own verified wiki fields."
         ],
         table: {
           caption: "Review evidence checklist",
           headers: ["Review area", "What to measure", "Publish when"],
           rows: [
-            ["Combat feel", "Hit feedback, blocking, dodging, spell safety", "After hands-on testing"],
-            ["Performance", "Resolution, preset, GPU, RAM, stutter, crashes", "After hardware notes"],
-            ["Content length", "Actual first-build completion time", "After finishing the EA slice"],
-            ["Steam Deck", "Frame cap, controls, readability, battery", "After Deck test"],
-            ["Value", "Price versus two-hour scope and replay value", "After price and playtime are known"]
+            ["Steam reviews", fatekeeperFacts.steamReviewSummary, "Official storefront snapshot"],
+            ["Combat feel", "Hit feedback, blocking, dodging, spell safety", "Source-labeled review or test note"],
+            ["Performance", "Resolution, preset, GPU, RAM, stutter, crashes", "Hardware-specific note"],
+            ["Content length", "Actual first-build completion time", "Patch-specific playthrough note"],
+            ["Steam Deck", "Frame cap, controls, readability, battery", "Deck test or official rating"],
+            ["Value", "Price versus two-hour scope and replay value", "Price snapshot plus playtime context"]
           ]
         }
       },
@@ -2246,7 +2247,7 @@ export const guidePages: GuidePage[] = [
       {
         question: "Are there Fatekeeper reviews yet?",
         answer:
-          "Reliable Fatekeeper reviews need the playable Early Access build. Before launch, treat review pages as previews or testing plans, not final verdicts."
+          `Yes. Steam currently shows ${fatekeeperFacts.steamReviewSummary}. Treat that as a store snapshot and still check repeated issues, playtime, patch version, and hardware context.`
       },
       {
         question: "What should a Fatekeeper review check first?",
@@ -2291,13 +2292,13 @@ export const guidePages: GuidePage[] = [
       "Exploration content needs screenshots, route notes, and patch version.",
       "Hidden loot and puzzle solutions are never invented.",
       "World pages link to relics, weapons, spells, and enemies when discoveries connect.",
-      "Before launch, the value is knowing exactly which exploration details need proof."
+      "Before direct verification, the value is knowing exactly which exploration details need proof."
     ],
     sections: [
       {
         heading: "How the world guide works",
         body: [
-          "Exploration pages work like practical maps in text form. You want to know where to go, what unlocks, what is missable, and what reward matters. Before launch, none of that is fabricated.",
+          "Exploration pages work like practical maps in text form. You want to know where to go, what unlocks, what is missable, and what reward matters. Before direct verification, none of that is fabricated.",
           "The world guide starts with the verification model, then adds exact discoveries after they are tested."
         ],
         table: {

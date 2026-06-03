@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { areas, weapons, spells, TOOL_NOTICE } from '@/lib/game-data';
 
@@ -12,8 +13,7 @@ function ld(): Progress { try { return JSON.parse(localStorage.getItem(STORAGE_K
 function sv(p: Progress) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); } catch {} }
 
 export default function ProgressTracker() {
-  const [p, setP] = useState<Progress>({clearedAreas:[],foundWeapons:[],foundSpells:[],level:1,vig:10,mainStat:10,notes:''});
-  useEffect(() => { setP(ld()); }, []);
+  const [p, setP] = useState<Progress>(() => ld());
 
   const up = (patch: Partial<Progress>) => { const n = {...p, ...patch}; setP(n); sv(n); };
   const ta = (id: string) => up({clearedAreas: p.clearedAreas.includes(id) ? p.clearedAreas.filter(x=>x!==id) : [...p.clearedAreas, id]});
@@ -21,13 +21,12 @@ export default function ProgressTracker() {
   const ts = (id: string) => up({foundSpells: p.foundSpells.includes(id) ? p.foundSpells.filter(x=>x!==id) : [...p.foundSpells, id]});
 
   const areaPct = Math.round((p.clearedAreas.length / areas.length) * 100);
-  const wpnPct = Math.round((p.foundWeapons.length / weapons.length) * 100);
 
   return (
     <main className="container py-8">
       <div className="surface p-4 mb-6"><p className="text-[13px] leading-6 text-silver-text">{TOOL_NOTICE}</p></div>
       <div className="relative aspect-[21/9] w-full overflow-hidden rounded-xl border border-graphite mb-8">
-        <img src="/images/fatekeeper-extended-demo.jpg" alt="Fatekeeper Progress Tracker — track your campaign" className="h-full w-full object-cover" />
+        <Image src="/images/fatekeeper-extended-demo.jpg" alt="Fatekeeper Progress Tracker - track your campaign" fill sizes="(max-width: 768px) 100vw, 1200px" className="object-cover" />
       </div>
       <Link href="/" className="btn-ghost mb-6 inline-block">← Home</Link>
       <h1 className="section-title mt-4">Progress Tracker</h1>
@@ -39,7 +38,7 @@ export default function ProgressTracker() {
           { l: 'Level', v: p.level, up: () => up({level: p.level+1}), dn: () => up({level: Math.max(1, p.level-1)}) },
           { l: 'Vigor', v: p.vig, up: () => up({vig: p.vig+1}), dn: () => up({vig: Math.max(1, p.vig-1)}) },
           { l: 'Main Stat', v: p.mainStat, up: () => up({mainStat: p.mainStat+1}), dn: () => up({mainStat: Math.max(1, p.mainStat-1)}) },
-          { l: 'Areas', v: `${areaPct}%`, up: undefined as any, dn: undefined as any },
+          { l: 'Areas', v: `${areaPct}%` },
         ].map(s => (
           <div key={s.l} className="surface p-4 text-center">
             <p className="mono-label">{s.l}</p>
